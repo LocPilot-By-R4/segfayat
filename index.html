@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Suivi photographique de la construction du complexe hôtelier 4★+ du Domaine de La Mongie. Archives chantier 2026.">
+  <meta name="theme-color" content="#071521">
+  <title>Complexe hôtelier 4★+ | Suivi du chantier – Domaine de La Mongie</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core@5.15.1/index.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css?v=9">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+      "@photo-sphere-viewer/core": "https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core@5.15.1/index.module.js",
+      "@photo-sphere-viewer/dual-fisheye-adapter": "https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/dual-fisheye-adapter@5.15.1/index.module.js"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Accueil">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 72 42" role="img">
+            <path d="M2 37 27 10l12 13 8-8 23 22" fill="none" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M18 37 39 15l16 22" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".7"/>
+          </svg>
+        </span>
+        <span>
+          <strong>LA MONGIE</strong>
+          <small>DOMAINE · SUIVI DE CHANTIER</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="main-nav" class="main-nav" aria-label="Navigation principale">
+        <a class="active" href="#accueil">Accueil</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#photos">Photos</a>
+        <a href="#immersion">360° immersion</a>
+        <a href="#videos">Vidéos</a>
+        <a href="#apropos">À propos</a>
+      </nav>
+
+      <a class="btn btn-gold header-cta" href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="hero" id="accueil">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow">Archives du chantier · 2026</p>
+          <h1>Complexe hôtelier <span>4★+</span><br>Domaine de La Mongie</h1>
+          <p class="hero-intro">
+            Suivez en images l'évolution du futur complexe hôtelier grâce aux reportages réalisés directement sur le chantier. Photos, vidéos et immersions 360° seront intégrées au fil de l'avancement.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#timeline">Voir la timeline</a>
+            <a class="btn btn-outline" href="#videos">Voir les vidéos</a>
+          </div>
+        </div>
+
+        <a class="hero-360-card" href="#photos" aria-label="Découvrir les archives photographiques de juillet 2026">
+          <img src="assets/photos/2026-07/20260731_103258.webp" alt="Vue du chantier au 31 juillet 2026">
+          <span class="badge-360">48</span>
+          <span>
+            <small>Archives intégrées</small>
+            <strong>Juillet 2026</strong>
+            <em>Voir les reportages →</em>
+          </span>
+        </a>
+      </div>
+
+      <div class="container">
+        <div class="stats-bar" id="project-stats">
+          <article>
+            <span class="stat-icon">▣</span>
+            <div><small>Dernière mise à jour</small><strong id="stat-date">—</strong></div>
+          </article>
+          <article>
+            <span class="stat-icon">△</span>
+            <div><small>Phase actuelle</small><strong id="stat-phase">—</strong></div>
+          </article>
+          <article>
+            <span class="stat-icon">▧</span>
+            <div><small>Photos publiées</small><strong id="stat-photos">—</strong></div>
+          </article>
+          <article>
+            <span class="stat-icon">▶</span>
+            <div><small>Vidéos</small><strong id="stat-videos">—</strong></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="timeline">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Journal de construction</p>
+            <h2>Timeline du chantier</h2>
+            <p>L'évolution étape par étape, du premier terrassement à la livraison.</p>
+          </div>
+          <button class="btn btn-ghost" type="button" id="show-all-reportages">Voir toute la timeline</button>
+        </div>
+
+        <div class="timeline-layout">
+          <aside class="timeline-panel" aria-label="Dates du chantier">
+            <div id="timeline-list" class="timeline-list"></div>
+          </aside>
+
+          <div class="reportage-panel" id="photos">
+            <div class="reportage-heading">
+              <div>
+                <p class="eyebrow" id="reportage-date">—</p>
+                <h3 id="reportage-title">Chargement…</h3>
+                <p id="reportage-description"></p>
+              </div>
+              <div class="view-switch" aria-label="Choix d'affichage">
+                <button type="button" class="active" data-view="mosaic" aria-label="Mosaïque">▦</button>
+                <button type="button" data-view="grid" aria-label="Grille">▥</button>
+              </div>
+            </div>
+
+            <div class="photo-grid mosaic" id="reportage-gallery"></div>
+
+            <button class="btn btn-outline" type="button" id="open-gallery">
+              Voir le reportage complet
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section immersion-section" id="immersion">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Sélection · 7 points de vue</p>
+            <h2>Immersion 360°</h2>
+            <p>Une sélection des vues les plus représentatives du relevé Insta360 du 3 septembre 2026.</p>
+          </div>
+          <div class="psv-credit">Photo Sphere Viewer · Dual Fisheye</div>
+        </div>
+
+        <div class="immersive-layout demo-360-layout">
+          <aside class="pano-places">
+            <h3>Points de vue</h3>
+            <div id="pano-place-list"></div>
+          </aside>
+
+          <div class="viewer-shell" id="viewer-shell">
+            <div class="viewer-toolbar">
+              <span id="viewer-place-label">Point de vue 01</span>
+              <span>3 septembre 2026</span>
+            </div>
+            <div id="viewer" aria-label="Visionneuse panoramique 360 degrés"></div>
+
+            <div id="viewer-fallback" class="viewer-fallback" hidden>
+              <div class="viewer-error-card">
+                <div class="viewer-error-icon" aria-hidden="true">360°</div>
+                <strong>Impossible d’afficher cette vue</strong>
+                <span>Vous pouvez sélectionner un autre point de vue.</span>
+                <button type="button" class="btn btn-gold viewer-retry" id="viewer-retry">Réessayer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section split-section">
+      <div class="container split-grid">
+        <article class="feature-card" id="comparaison">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">Même angle · évolution dans le temps</p>
+              <h2>Avant / Après</h2>
+            </div>
+          </div>
+
+          <div class="compare" id="before-after">
+            <img class="compare-before" src="assets/photos/2026-07/20260708_093133.webp" alt="Vue du chantier le 8 juillet 2026">
+            <div class="compare-after-wrap" id="compare-after-wrap">
+              <img class="compare-after" src="assets/photos/2026-07/20260731_103258.webp" alt="Vue du chantier le 31 juillet 2026">
+            </div>
+            <div class="compare-divider" id="compare-divider" aria-hidden="true"></div>
+            <input
+              id="compare-range"
+              class="compare-range"
+              type="range"
+              min="0"
+              max="100"
+              value="50"
+              aria-label="Comparer la photo avant et la photo après">
+            <span class="compare-label before-label">8 juillet 2026</span>
+            <span class="compare-label after-label">31 juillet 2026</span>
+          </div>
+          <p class="muted">Comparaison issue de deux vues réalisées depuis un point haut similaire au début et à la fin du mois de juillet.</p>
+        </article>
+
+        <article class="feature-card" id="videos">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">À intégrer au prochain envoi</p>
+              <h2>Vidéos du chantier</h2>
+            </div>
+          </div>
+
+          <div class="video-grid" id="video-grid"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section about-section" id="apropos">
+      <div class="container about-grid">
+        <div>
+          <p class="eyebrow">Le projet</p>
+          <h2>Un journal visuel pensé pour durer</h2>
+        </div>
+        <div class="about-copy">
+          <p>
+            Ce site documente la construction du complexe hôtelier à partir des reportages réellement réalisés sur le terrain. Les premières archives intégrées couvrent cinq relevés photographiques de juillet 2026.
+          </p>
+          <p>
+            À la livraison, l'ensemble constituera une archive complète du chantier et pourra être
+            transformé en rétrospective « de la première pierre à l'ouverture ».
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <strong>R4 CONSULTING / LOCPILOT</strong>
+        <p>Reportage photographique, vidéo et suivi numérique du chantier.</p>
+      </div>
+
+      <div>
+        <h3>Accès rapides</h3>
+        <a href="#timeline">Timeline</a>
+        <a href="#photos">Photos</a>
+        <a href="#immersion">360° immersion</a>
+      </div>
+
+      <div>
+        <h3>Médias</h3>
+        <a href="#videos">Vidéos</a>
+        <a href="#comparaison">Avant / après</a>
+        <a href="#apropos">À propos</a>
+      </div>
+
+      <div>
+        <h3>Informations projet</h3>
+        <p>Complexe hôtelier 4★+</p>
+        <p>Domaine de La Mongie</p>
+        <p>Hautes-Pyrénées · France</p>
+        <p>2026 — 2027</p>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>Suivi de chantier · Domaine de La Mongie</span>
+      <a href="#top">Retour en haut ↑</a>
+    </div>
+  </footer>
+
+  <dialog class="media-dialog" id="gallery-dialog">
+    <button class="dialog-close" type="button" data-dialog-close aria-label="Fermer">×</button>
+    <div class="dialog-content">
+      <div class="dialog-heading">
+        <p class="eyebrow" id="dialog-date"></p>
+        <h2 id="dialog-title"></h2>
+      </div>
+      <div class="dialog-gallery" id="dialog-gallery"></div>
+    </div>
+  </dialog>
+
+  <dialog class="media-dialog video-dialog" id="video-dialog">
+    <button class="dialog-close" type="button" data-dialog-close aria-label="Fermer">×</button>
+    <div class="dialog-content">
+      <div class="video-placeholder">
+        <span class="play-big">▶</span>
+        <h2 id="video-dialog-title">Vidéo</h2>
+        <p id="video-dialog-copy">Remplacez l'URL de démonstration par votre vidéo YouTube, Vimeo ou fichier MP4.</p>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="assets/js/app.js?v=9" defer></script>
+  <script type="module" src="assets/js/360-viewer.js?v=9"></script>
+</body>
+</html>

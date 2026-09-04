@@ -1,0 +1,102 @@
+{
+  "places": [
+    {
+      "id": "point-vue-01",
+      "label": "Point de vue 01",
+      "source_index": 1,
+      "shots": [
+        {
+          "date": "2026-09-03",
+          "panorama": "assets/360/selection-01-2026-09-03.jpg",
+          "thumbnail": "assets/images/selection-01-2026-09-03-thumb.webp",
+          "description": "Relevé immersif du chantier — point de vue 01.",
+          "markers": []
+        }
+      ]
+    },
+    {
+      "id": "point-vue-02",
+      "label": "Point de vue 02",
+      "source_index": 5,
+      "shots": [
+        {
+          "date": "2026-09-03",
+          "panorama": "assets/360/selection-02-2026-09-03.jpg",
+          "thumbnail": "assets/images/selection-02-2026-09-03-thumb.webp",
+          "description": "Relevé immersif du chantier — point de vue 02.",
+          "markers": []
+        }
+      ]
+    },
+    {
+      "id": "point-vue-03",
+      "label": "Point de vue 03",
+      "source_index": 7,
+      "shots": [
+        {
+          "date": "2026-09-03",
+          "panorama": "assets/360/selection-03-2026-09-03.jpg",
+          "thumbnail": "assets/images/selection-03-2026-09-03-thumb.webp",
+          "description": "Relevé immersif du chantier — point de vue 03.",
+          "markers": []
+        }
+      ]
+    },
+    {
+      "id": "point-vue-04",
+      "label": "Point de vue 04",
+      "source_index": 10,
+      "shots": [
+        {
+          "date": "2026-09-03",
+          "panorama": "assets/360/selection-04-2026-09-03.jpg",
+          "thumbnail": "assets/images/selection-04-2026-09-03-thumb.webp",
+          "description": "Relevé immersif du chantier — point de vue 04.",
+          "markers": []
+        }
+      ]
+    },
+    {
+      "id": "point-vue-05",
+      "label": "Point de vue 05",
+      "source_index": 12,
+      "shots": [
+        {
+          "date": "2026-09-03",
+          "panorama": "assets/360/selection-05-2026-09-03.jpg",
+          "thumbnail": "assets/images/selection-05-2026-09-03-thumb.webp",
+          "description": "Relevé immersif du chantier — point de vue 05.",
+          "markers": []
+        }
+      ]
+    },
+    {
+      "id": "point-vue-06",
+      "label": "Point de vue 06",
+      "source_index": 15,
+      "shots": [
+        {
+          "date": "2026-09-03",
+          "panorama": "assets/360/selection-06-2026-09-03.jpg",
+          "thumbnail": "assets/images/selection-06-2026-09-03-thumb.webp",
+          "description": "Relevé immersif du chantier — point de vue 06.",
+          "markers": []
+        }
+      ]
+    },
+    {
+      "id": "point-vue-07",
+      "label": "Point de vue 07",
+      "source_index": 24,
+      "shots": [
+        {
+          "date": "2026-09-03",
+          "panorama": "assets/360/selection-07-2026-09-03.jpg",
+          "thumbnail": "assets/images/selection-07-2026-09-03-thumb.webp",
+          "description": "Relevé immersif du chantier — point de vue 07.",
+          "markers": []
+        }
+      ]
+    }
+  ]
+}
