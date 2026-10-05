@@ -201,3 +201,13 @@ Le fichier `juin2026compressed.zip` reçu est une archive ZIP valide mais vide (
 ### 360°
 
 Les photos de juillet sont des panoramas classiques et non des images équirectangulaires 2:1 à 360°. La section Photo Sphere Viewer reste donc en attente du premier média 360° réel afin de ne pas afficher de faux contenu immersif.
+
+
+## V16 — Chronologie planning
+
+- ajout d'une chronologie opérationnelle accessible basée sur le planning prévisionnel Phase 01
+- distinction explicite entre dates prévisionnelles et médias réellement documentés
+- grandes phases : Préparation, VRD, Fondations, Sous-sol, RDC, R+1, R+5
+- affichage responsive : rail horizontal tactile sur mobile, cartes détaillées sur tablette et PC
+- le document PDF source n'est pas publié sur le mini-site
+- conservation du correctif de molette du viewer 360° : la molette fait défiler la page, le zoom reste disponible via les boutons
