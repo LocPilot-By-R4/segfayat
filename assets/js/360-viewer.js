@@ -86,6 +86,7 @@ async function init() {
       adapter: DualFisheyeAdapter,
       navbar: navbar(),
       touchmoveTwoFingers: false,
+      mousewheel: false,
       mousewheelCtrlKey: false,
       defaultZoomLvl: 30,
     });
