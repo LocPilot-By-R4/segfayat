@@ -211,3 +211,13 @@ Les photos de juillet sont des panoramas classiques et non des images équirecta
 - affichage responsive : rail horizontal tactile sur mobile, cartes détaillées sur tablette et PC
 - le document PDF source n'est pas publié sur le mini-site
 - conservation du correctif de molette du viewer 360° : la molette fait défiler la page, le zoom reste disponible via les boutons
+
+
+## V17 — grandes étapes sans planning prévisionnel
+
+- conservation de la navigation par grands postes : Préparation, VRD, Fondations, Sous-sol, RDC, R+1 et R+5
+- suppression de toutes les dates prévisionnelles
+- suppression des statuts « en cours / terminé / à venir selon planning »
+- suppression de la barre d'avancement calendaire
+- les dates conservées sur le site correspondent uniquement aux reportages réellement réalisés
+- maintien des liens entre grands postes et médias disponibles
