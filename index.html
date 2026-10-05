@@ -8,7 +8,7 @@
   <title>Complexe hôtelier 4★+ | Suivi du chantier – Domaine de La Mongie</title>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core@5.15.1/index.min.css">
-  <link rel="stylesheet" href="assets/css/styles.css?v=9">
+  <link rel="stylesheet" href="assets/css/styles.css?v=16">
   <script type="importmap">
   {
     "imports": {
@@ -107,15 +107,55 @@
       </div>
     </section>
 
-    <section class="section section-dark" id="timeline">
+    
+    <section class="section planning-section" id="timeline" aria-labelledby="planning-title">
+      <div class="container">
+        <div class="section-heading planning-heading">
+          <div>
+            <p class="eyebrow">Planning prévisionnel · Phase 01</p>
+            <h2 id="planning-title">Chronologie du chantier</h2>
+            <p>Une lecture simple des grandes étapes prévues, complétée par les reportages réellement documentés.</p>
+          </div>
+          <span class="planning-tag">22 avr. 2026 → 31 mars 2028</span>
+        </div>
+
+        <div class="planning-summary" aria-label="Position dans le calendrier global">
+          <div class="planning-summary-top">
+            <span><small>Début prévisionnel</small><strong>22 avril 2026</strong></span>
+            <span class="planning-summary-center"><small>Position calendrier</small><strong id="planning-progress-label">—</strong></span>
+            <span class="planning-summary-end"><small>Fin prévisionnelle</small><strong>31 mars 2028</strong></span>
+          </div>
+          <div class="planning-progress" aria-hidden="true"><span id="planning-progress-bar"></span></div>
+        </div>
+
+        <div id="schedule-rail" class="schedule-rail" aria-label="Grandes phases du chantier"></div>
+
+        <div class="planning-subheading">
+          <div>
+            <p class="eyebrow">Étapes principales</p>
+            <h3>Prévu, en cours et documenté</h3>
+          </div>
+          <p>Les statuts ci-dessous sont calculés à partir des dates du planning prévisionnel et ne constituent pas une validation de l'avancement réel.</p>
+        </div>
+
+        <div id="schedule-cards" class="schedule-cards"></div>
+
+        <div class="planning-note">
+          <strong>Lecture du suivi</strong>
+          <span><b>Planning</b> = dates prévisionnelles · <b>Documenté</b> = médias disponibles sur ce mini-site.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="reportages">
       <div class="container">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Journal de construction</p>
-            <h2>Timeline du chantier</h2>
-            <p>L'évolution étape par étape, du premier terrassement à la livraison.</p>
+            <p class="eyebrow">Archives terrain</p>
+            <h2>Reportages documentés</h2>
+            <p>Photos et relevés réalisés sur le chantier, classés par date.</p>
           </div>
-          <button class="btn btn-ghost" type="button" id="show-all-reportages">Voir toute la timeline</button>
+          <button class="btn btn-ghost" type="button" id="show-all-reportages">Parcourir les reportages</button>
         </div>
 
         <div class="timeline-layout">
@@ -303,7 +343,8 @@
     </div>
   </dialog>
 
-  <script src="assets/js/app.js?v=9" defer></script>
-  <script type="module" src="assets/js/360-viewer.js?v=9"></script>
+  <script src="assets/js/app.js?v=16" defer></script>
+  <script src="assets/js/planning.js?v=16" defer></script>
+  <script type="module" src="assets/js/360-viewer.js?v=16"></script>
 </body>
 </html>
