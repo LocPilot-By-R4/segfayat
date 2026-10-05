@@ -1,22 +1,13 @@
 {
   "meta": {
-    "title": "Planning prévisionnel – Phase 01",
-    "start": "2026-04-22",
-    "end": "2028-03-31",
-    "note": "Les statuts sont calculés à partir des dates prévisionnelles et ne valent pas validation de l'avancement réel."
+    "title": "Grandes étapes du chantier",
+    "note": "Classement éditorial des reportages par grands postes de construction. Aucune date prévisionnelle ni statut d’avancement n’est affiché."
   },
-  "milestones": [
-    {
-      "date": "2026-07-22",
-      "label": "Montage de la grue"
-    }
-  ],
   "phases": [
     {
       "id": "preparation",
       "label": "Préparation",
-      "start": "2026-04-22",
-      "end": "2026-06-22",
+      "description": "Mise en place et organisation générale du chantier.",
       "operations": [
         "Préparation générale",
         "Organisation préalable du chantier"
@@ -30,8 +21,7 @@
     {
       "id": "vrd",
       "label": "VRD",
-      "start": "2026-06-01",
-      "end": "2026-07-31",
+      "description": "Travaux préparatoires, terrassements et aménagements liés aux infrastructures du chantier.",
       "operations": [
         "Terrassement / plateforme",
         "Paroi berlinoise",
@@ -40,14 +30,13 @@
       "media": {
         "photos": true,
         "panos": false,
-        "label": "Reportages photo de juillet"
+        "label": "Reportages photo disponibles"
       }
     },
     {
       "id": "fondations",
       "label": "Fondations",
-      "start": "2026-07-27",
-      "end": "2026-09-18",
+      "description": "Ouvrages de fondation et travaux d’infrastructure documentés sur le terrain.",
       "operations": [
         "Semelles isolées",
         "Semelles filantes",
@@ -60,17 +49,16 @@
       "media": {
         "photos": true,
         "panos": true,
-        "label": "Photos + relevé 360°"
+        "label": "Photos et immersion 360° disponibles"
       }
     },
     {
       "id": "sous-sol",
       "label": "Sous-sol",
-      "start": "2026-09-08",
-      "end": "2026-10-14",
+      "description": "Élévation et ouvrages structurels du niveau sous-sol.",
       "operations": [
         "Montage banches",
-        "Voiles config. 330",
+        "Voiles",
         "Prémurs",
         "Poteaux",
         "Poutres",
@@ -78,18 +66,16 @@
       ],
       "media": {
         "photos": false,
-        "panos": true,
-        "label": "Relevé 360° disponible"
+        "panos": false,
+        "label": ""
       }
     },
     {
       "id": "rdc",
       "label": "RDC",
-      "start": "2026-10-05",
-      "end": "2026-11-16",
+      "description": "Élévation et ouvrages structurels du rez-de-chaussée.",
       "operations": [
-        "Changement configuration",
-        "Voiles config. 430",
+        "Voiles",
         "Prémurs",
         "Poteaux",
         "Poutres",
@@ -104,15 +90,14 @@
     {
       "id": "r1",
       "label": "R+1",
-      "start": "2026-11-05",
-      "end": "2027-04-22",
+      "description": "Suivi du premier niveau de l’élévation.",
       "operations": [
         "Voiles",
         "Prémurs",
         "Poteaux",
         "Poutres",
         "Plancher haut R+1",
-        "Acrotères bas R+1"
+        "Acrotères"
       ],
       "media": {
         "photos": false,
@@ -123,11 +108,10 @@
     {
       "id": "r5",
       "label": "R+5",
-      "start": "2027-06-16",
-      "end": "2027-07-26",
+      "description": "Niveau supérieur identifié comme grand poste dans la chronologie du chantier.",
       "operations": [
         "Structure R+5",
-        "Étanchéité provisoire"
+        "Étanchéité"
       ],
       "media": {
         "photos": false,
