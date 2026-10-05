@@ -3169,3 +3169,41 @@ input {
   .schedule-card h4{font-size:17px}
   .planning-note{align-items:flex-start;flex-direction:column;gap:4px}
 }
+
+
+/* V17 — grandes étapes sans échéances */
+.planning-heading{margin-bottom:26px}
+.schedule-step{
+  min-height:92px;
+  align-content:center;
+  justify-items:center;
+  gap:8px;
+}
+.schedule-step strong{
+  font-size:12px;
+  letter-spacing:.02em;
+}
+.schedule-description{
+  margin:10px 0 0;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.55;
+  max-width:62ch;
+}
+.schedule-card{
+  min-height:210px;
+}
+.schedule-card-top{
+  align-items:center;
+}
+.schedule-media span{
+  color:#c7d0d6;
+}
+@media(max-width:900px){
+  .schedule-step{
+    min-height:76px;
+    grid-template-columns:34px 1fr;
+    align-items:center;
+    justify-items:start;
+  }
+}
