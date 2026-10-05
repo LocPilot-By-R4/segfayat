@@ -55,7 +55,7 @@
 
   function updateStats(project, reports, videos) {
     $("#stat-date").textContent = formatDate(project.lastUpdate);
-    $("#stat-phase").textContent = project.currentPhase || "À renseigner";
+    $("#stat-phase").textContent = "7 vues";
     $("#stat-photos").textContent = reports.reduce((sum, report) => sum + (report.photoCount || report.photos.length), 0);
     $("#stat-videos").textContent = videos.length;
   }
