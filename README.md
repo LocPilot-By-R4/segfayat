@@ -221,3 +221,11 @@ Les photos de juillet sont des panoramas classiques et non des images équirecta
 - suppression de la barre d'avancement calendaire
 - les dates conservées sur le site correspondent uniquement aux reportages réellement réalisés
 - maintien des liens entre grands postes et médias disponibles
+
+
+## V18 — étapes documentées
+
+- la chronologie n'affiche plus les phases sans média associé
+- une étape apparaît uniquement lorsqu'un reportage photo ou une immersion 360° est disponible
+- les cartes sont simplifiées pour mettre le reportage au premier plan
+- suppression des références visibles à LocPilot ; le footer affiche uniquement R4 CONSULTING
