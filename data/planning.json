@@ -1,0 +1,139 @@
+{
+  "meta": {
+    "title": "Planning prévisionnel – Phase 01",
+    "start": "2026-04-22",
+    "end": "2028-03-31",
+    "note": "Les statuts sont calculés à partir des dates prévisionnelles et ne valent pas validation de l'avancement réel."
+  },
+  "milestones": [
+    {
+      "date": "2026-07-22",
+      "label": "Montage de la grue"
+    }
+  ],
+  "phases": [
+    {
+      "id": "preparation",
+      "label": "Préparation",
+      "start": "2026-04-22",
+      "end": "2026-06-22",
+      "operations": [
+        "Préparation générale",
+        "Organisation préalable du chantier"
+      ],
+      "media": {
+        "photos": false,
+        "panos": false,
+        "label": ""
+      }
+    },
+    {
+      "id": "vrd",
+      "label": "VRD",
+      "start": "2026-06-01",
+      "end": "2026-07-31",
+      "operations": [
+        "Terrassement / plateforme",
+        "Paroi berlinoise",
+        "Façades Sud, Est et Ouest"
+      ],
+      "media": {
+        "photos": true,
+        "panos": false,
+        "label": "Reportages photo de juillet"
+      }
+    },
+    {
+      "id": "fondations",
+      "label": "Fondations",
+      "start": "2026-07-27",
+      "end": "2026-09-18",
+      "operations": [
+        "Semelles isolées",
+        "Semelles filantes",
+        "Longrines / butons",
+        "Libages",
+        "Réseaux sous dalle",
+        "Complexe sous dalle",
+        "Dalle portée"
+      ],
+      "media": {
+        "photos": true,
+        "panos": true,
+        "label": "Photos + relevé 360°"
+      }
+    },
+    {
+      "id": "sous-sol",
+      "label": "Sous-sol",
+      "start": "2026-09-08",
+      "end": "2026-10-14",
+      "operations": [
+        "Montage banches",
+        "Voiles config. 330",
+        "Prémurs",
+        "Poteaux",
+        "Poutres",
+        "Plancher haut sous-sol"
+      ],
+      "media": {
+        "photos": false,
+        "panos": true,
+        "label": "Relevé 360° disponible"
+      }
+    },
+    {
+      "id": "rdc",
+      "label": "RDC",
+      "start": "2026-10-05",
+      "end": "2026-11-16",
+      "operations": [
+        "Changement configuration",
+        "Voiles config. 430",
+        "Prémurs",
+        "Poteaux",
+        "Poutres",
+        "Plancher haut RDC"
+      ],
+      "media": {
+        "photos": false,
+        "panos": false,
+        "label": ""
+      }
+    },
+    {
+      "id": "r1",
+      "label": "R+1",
+      "start": "2026-11-05",
+      "end": "2027-04-22",
+      "operations": [
+        "Voiles",
+        "Prémurs",
+        "Poteaux",
+        "Poutres",
+        "Plancher haut R+1",
+        "Acrotères bas R+1"
+      ],
+      "media": {
+        "photos": false,
+        "panos": false,
+        "label": ""
+      }
+    },
+    {
+      "id": "r5",
+      "label": "R+5",
+      "start": "2027-06-16",
+      "end": "2027-07-26",
+      "operations": [
+        "Structure R+5",
+        "Étanchéité provisoire"
+      ],
+      "media": {
+        "photos": false,
+        "panos": false,
+        "label": ""
+      }
+    }
+  ]
+}
