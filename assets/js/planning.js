@@ -5,14 +5,14 @@
   const cards = document.getElementById("schedule-cards");
   if (!rail || !cards) return;
 
-  function mediaHtml(media) {
-    if (!media || (!media.photos && !media.panos)) {
-      return '<span>Reportages à venir</span>';
-    }
+  function hasMedia(phase) {
+    return Boolean(phase?.media?.photos || phase?.media?.panos);
+  }
 
+  function mediaHtml(media) {
     let html = "";
-    if (media.photos) html += '<a href="#photos">▧ Voir les photos</a>';
-    if (media.panos) html += '<a href="#immersion">◎ Explorer en 360°</a>';
+    if (media.photos) html += '<a href="#photos">▧ Voir le reportage photo</a>';
+    if (media.panos) html += '<a href="#immersion">◎ Explorer le reportage 360°</a>';
     if (media.label) html += '<span>' + media.label + '</span>';
     return html;
   }
@@ -21,11 +21,13 @@
     rail.innerHTML = "";
     cards.innerHTML = "";
 
-    data.phases.forEach((phase, index) => {
+    const documentedPhases = data.phases.filter(hasMedia);
+
+    documentedPhases.forEach((phase, index) => {
       const step = document.createElement("button");
       step.type = "button";
       step.className = "schedule-step";
-      step.setAttribute("aria-label", "Voir l’étape " + phase.label);
+      step.setAttribute("aria-label", "Voir les reportages de l’étape " + phase.label);
       step.innerHTML =
         '<span class="schedule-dot">' + String(index + 1).padStart(2, "0") + '</span>' +
         '<strong>' + phase.label + '</strong>';
@@ -48,20 +50,21 @@
       card.innerHTML =
         '<div class="schedule-card-top"><div><h4>' + phase.label + '</h4></div></div>' +
         description +
-        '<ul class="schedule-ops">' +
-          phase.operations.map(op => '<li>' + op + '</li>').join("") +
-        '</ul>' +
         '<div class="schedule-media">' + mediaHtml(phase.media) + '</div>';
 
       cards.appendChild(card);
     });
+
+    if (!documentedPhases.length) {
+      cards.innerHTML = '<div class="media-empty"><div><strong>Aucun reportage disponible</strong><span>Les étapes apparaîtront ici au fur et à mesure des nouveaux relevés.</span></div></div>';
+    }
   }
 
-  fetch("data/planning.json?v=17", { cache: "no-store" })
+  fetch("data/planning.json?v=18", { cache: "no-store" })
     .then(response => {
       if (!response.ok) throw new Error("HTTP " + response.status);
       return response.json();
     })
     .then(render)
-    .catch(error => console.error("Étapes du chantier indisponibles :", error));
+    .catch(error => console.error("Étapes documentées indisponibles :", error));
 })();
