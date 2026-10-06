@@ -3207,3 +3207,168 @@ input {
     justify-items:start;
   }
 }
+
+
+/* V19 — projection hôtel complète dans le hero */
+.hero{
+  min-height:0;
+  background:#071521;
+}
+.hero-bg{
+  background:
+    radial-gradient(circle at 76% 34%,rgba(34,77,107,.20),transparent 36%),
+    linear-gradient(145deg,#0b2233,#071521) !important;
+  transform:none !important;
+}
+.hero-overlay{
+  background:
+    linear-gradient(90deg,rgba(4,16,25,.42) 0%,rgba(4,16,25,.12) 48%,rgba(4,16,25,.04) 100%),
+    linear-gradient(0deg,rgba(4,15,24,.72) 0%,rgba(4,15,24,0) 38%) !important;
+}
+.hero-content{
+  grid-template-columns:minmax(0,.9fr) minmax(500px,1.1fr);
+  align-items:center;
+  gap:clamp(34px,4vw,72px);
+  padding-top:clamp(48px,6vw,78px);
+  padding-bottom:clamp(42px,5vw,66px);
+}
+.hero-copy{
+  max-width:650px;
+}
+.hero h1{
+  max-width:760px;
+  font-size:clamp(40px,4.45vw,68px);
+}
+.hero-intro{
+  max-width:560px;
+  font-size:clamp(15px,1.15vw,18px);
+}
+.hero-visual{
+  min-width:0;
+  display:grid;
+  gap:12px;
+  align-self:center;
+}
+.hero-projection-frame{
+  position:relative;
+  margin:0;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.20);
+  border-radius:14px;
+  background:#dbe7f2;
+  box-shadow:0 24px 55px rgba(0,0,0,.34);
+}
+.hero-projection{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+  object-position:center;
+}
+.hero-projection-frame figcaption{
+  position:absolute;
+  right:10px;
+  bottom:9px;
+  padding:5px 8px;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:999px;
+  background:rgba(4,17,27,.72);
+  color:rgba(255,255,255,.76);
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  backdrop-filter:blur(8px);
+}
+.hero-visual .hero-360-card{
+  width:100%;
+  max-width:none;
+  justify-self:stretch;
+  align-self:auto;
+  display:grid;
+  grid-template-columns:156px minmax(0,1fr);
+  min-height:88px;
+  border-color:rgba(255,255,255,.18);
+  background:rgba(7,27,41,.90);
+  box-shadow:0 12px 30px rgba(0,0,0,.20);
+}
+.hero-visual .hero-360-card img{
+  width:100%;
+  height:100%;
+  min-height:88px;
+  aspect-ratio:auto;
+  object-fit:cover;
+}
+.hero-visual .hero-360-card > span:last-child{
+  align-content:center;
+  padding:12px 15px;
+}
+.hero-visual .badge-360{
+  right:auto;
+  left:112px;
+  top:9px;
+  width:36px;
+  height:36px;
+  font-size:8px;
+}
+@media(max-width:1100px){
+  .hero-content{
+    grid-template-columns:minmax(0,.88fr) minmax(430px,1.12fr);
+    gap:28px;
+  }
+  .hero h1{font-size:clamp(38px,4.4vw,58px)}
+}
+@media(max-width:900px){
+  .hero{min-height:0 !important}
+  .hero-content{
+    min-height:0 !important;
+    grid-template-columns:1fr !important;
+    align-items:stretch;
+    gap:28px;
+    padding-top:28px;
+    padding-bottom:34px;
+  }
+  .hero-visual{
+    order:-1;
+  }
+  .hero-copy{
+    max-width:none;
+  }
+  .hero h1{
+    max-width:15ch;
+  }
+  .hero-visual .hero-360-card{
+    display:grid !important;
+  }
+}
+@media(max-width:620px){
+  .hero-content{
+    padding-top:18px;
+    gap:22px;
+  }
+  .hero-projection-frame{
+    border-radius:10px;
+  }
+  .hero-projection-frame figcaption{
+    right:7px;
+    bottom:6px;
+    font-size:6.5px;
+  }
+  .hero-visual .hero-360-card{
+    grid-template-columns:112px minmax(0,1fr);
+    min-height:76px;
+  }
+  .hero-visual .hero-360-card img{
+    min-height:76px;
+  }
+  .hero-visual .badge-360{
+    left:77px;
+    top:7px;
+    width:29px;
+    height:29px;
+    font-size:6.5px;
+  }
+  .hero h1{
+    max-width:none;
+  }
+}
