@@ -229,3 +229,14 @@ Les photos de juillet sont des panoramas classiques et non des images équirecta
 - une étape apparaît uniquement lorsqu'un reportage photo ou une immersion 360° est disponible
 - les cartes sont simplifiées pour mettre le reportage au premier plan
 - suppression des références visibles à LocPilot ; le footer affiche uniquement R4 CONSULTING
+
+
+## V19 — projection hôtel restaurée
+
+- restauration de la perspective architecturale de l'hôtel terminé dans le header
+- image servie localement depuis le dépôt GitHub
+- affichage complet de la perspective, sans recadrage `cover`
+- sur desktop : texte à gauche, perspective entière à droite
+- sur mobile/tablette : perspective entière au-dessus du texte
+- conservation du filtrage V18 : seules les étapes disposant d'un reportage sont affichées
+- aucune référence visible à LocPilot
