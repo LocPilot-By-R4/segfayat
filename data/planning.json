@@ -5,19 +5,6 @@
   },
   "phases": [
     {
-      "id": "demarrage",
-      "label": "Démarrage",
-      "description": "Premières vues générales du site au lancement du chantier.",
-      "operations": [
-        "Première vue générale du chantier"
-      ],
-      "media": {
-        "photos": true,
-        "panos": false,
-        "label": "Reportage du démarrage disponible"
-      }
-    },
-    {
       "id": "preparation",
       "label": "Préparation",
       "description": "Mise en place et organisation générale du chantier.",

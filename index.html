@@ -8,7 +8,7 @@
   <title>Complexe hôtelier 4★+ | Suivi du chantier – Domaine de La Mongie</title>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core@5.15.1/index.min.css">
-  <link rel="stylesheet" href="assets/css/styles.css?v=21">
+  <link rel="stylesheet" href="assets/css/styles.css?v=19">
   <script type="importmap">
   {
     "imports": {
@@ -78,7 +78,7 @@
           <figure class="hero-projection-frame">
             <img
               class="hero-projection"
-              src="assets/photos/hero/hotel-projection.webp"
+              src="assets/photos/hero/hotel-projection.jpg"
               alt="Perspective architecturale du futur hôtel 4 étoiles à La Mongie">
             <figcaption>Perspective architecturale du projet</figcaption>
           </figure>
@@ -170,6 +170,10 @@
                 <h3 id="reportage-title">Chargement…</h3>
                 <p id="reportage-description"></p>
               </div>
+              <div class="view-switch" aria-label="Choix d'affichage">
+                <button type="button" class="active" data-view="mosaic" aria-label="Mosaïque">▦</button>
+                <button type="button" data-view="grid" aria-label="Grille">▥</button>
+              </div>
             </div>
 
             <div class="photo-grid mosaic" id="reportage-gallery"></div>
@@ -221,31 +225,32 @@
 
     <section class="section split-section">
       <div class="container split-grid">
-        <article class="feature-card evolution-card" id="comparaison">
+        <article class="feature-card" id="comparaison">
           <div class="card-heading">
             <div>
-              <p class="eyebrow">Archives photographiques · navigation chronologique</p>
-              <h2>Évolution du chantier</h2>
-              <p class="muted">Sélectionnez une date pour suivre l’évolution du chantier depuis un point de vue similaire.</p>
+              <p class="eyebrow">Même angle · évolution dans le temps</p>
+              <h2>Avant / Après</h2>
             </div>
           </div>
 
-          <div class="evolution-viewer">
-            <div class="evolution-photo-wrap">
-              <img
-                id="evolution-image"
-                src="assets/photos/2026-06/20260629_154337.webp"
-                alt="Vue générale du chantier de La Mongie le 29 juin 2026">
-              <span class="evolution-date-badge" id="evolution-date-badge">29 juin 2026</span>
+          <div class="compare" id="before-after">
+            <img class="compare-before" src="assets/photos/2026-07/20260708_093133.webp" alt="Vue du chantier le 8 juillet 2026">
+            <div class="compare-after-wrap" id="compare-after-wrap">
+              <img class="compare-after" src="assets/photos/2026-07/20260731_103258.webp" alt="Vue du chantier le 31 juillet 2026">
             </div>
-
-            <div class="evolution-copy">
-              <strong id="evolution-title">Démarrage du chantier</strong>
-              <p id="evolution-description">Vue générale du site au tout début du chantier.</p>
-            </div>
-
-            <div class="evolution-dates" id="evolution-dates" aria-label="Choisir une date de reportage"></div>
+            <div class="compare-divider" id="compare-divider" aria-hidden="true"></div>
+            <input
+              id="compare-range"
+              class="compare-range"
+              type="range"
+              min="0"
+              max="100"
+              value="50"
+              aria-label="Comparer la photo avant et la photo après">
+            <span class="compare-label before-label">8 juillet 2026</span>
+            <span class="compare-label after-label">31 juillet 2026</span>
           </div>
+          <p class="muted">Comparaison issue de deux vues réalisées depuis un point haut similaire au début et à la fin du mois de juillet.</p>
         </article>
 
         <article class="feature-card" id="videos">
@@ -297,7 +302,7 @@
       <div>
         <h3>Médias</h3>
         <a href="#videos">Vidéos</a>
-        <a href="#comparaison">Évolution du chantier</a>
+        <a href="#comparaison">Avant / après</a>
         <a href="#apropos">À propos</a>
       </div>
 
@@ -338,8 +343,8 @@
     </div>
   </dialog>
 
-  <script src="assets/js/app.js?v=21" defer></script>
-  <script src="assets/js/planning.js?v=21" defer></script>
-  <script type="module" src="assets/js/360-viewer.js?v=21"></script>
+  <script src="assets/js/app.js?v=19" defer></script>
+  <script src="assets/js/planning.js?v=19" defer></script>
+  <script type="module" src="assets/js/360-viewer.js?v=19"></script>
 </body>
 </html>

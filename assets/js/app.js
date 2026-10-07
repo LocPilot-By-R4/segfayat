@@ -38,11 +38,10 @@
     videoDialog: $("#video-dialog"),
     videoDialogTitle: $("#video-dialog-title"),
     videoDialogCopy: $("#video-dialog-copy"),
-    evolutionImage: $("#evolution-image"),
-    evolutionDate: $("#evolution-date-badge"),
-    evolutionTitle: $("#evolution-title"),
-    evolutionDescription: $("#evolution-description"),
-    evolutionDates: $("#evolution-dates"),
+    compareRange: $("#compare-range"),
+    compareWrap: $("#compare-after-wrap"),
+    compareDivider: $("#compare-divider"),
+    compare: $("#before-after"),
   };
 
   function formatDate(dateString) {
@@ -203,50 +202,20 @@
     });
   }
 
-  function renderEvolution(entries = []) {
-    if (!els.evolutionImage || !els.evolutionDates) return;
+  function setupBeforeAfter() {
+    const setCompare = value => {
+      const percent = Math.max(0, Math.min(100, Number(value)));
+      els.compareWrap.style.width = `${percent}%`;
+      els.compareDivider.style.left = `${percent}%`;
 
-    const ordered = [...entries].sort((a, b) => a.date.localeCompare(b.date));
-
-    const shortDate = dateString => new Intl.DateTimeFormat("fr-FR", {
-      day: "numeric",
-      month: "short"
-    }).format(new Date(`${dateString}T12:00:00`));
-
-    const selectEvolution = entryId => {
-      const entry = ordered.find(item => item.id === entryId);
-      if (!entry) return;
-
-      els.evolutionImage.src = entry.src;
-      els.evolutionImage.alt = entry.alt || `Vue du chantier du ${formatDate(entry.date)}`;
-      els.evolutionDate.textContent = formatDate(entry.date);
-      els.evolutionTitle.textContent = entry.title || "Évolution du chantier";
-      els.evolutionDescription.textContent = entry.description || "";
-
-      $$(".evolution-date-chip", els.evolutionDates).forEach(button => {
-        const active = button.dataset.entryId === entry.id;
-        button.classList.toggle("active", active);
-        button.setAttribute("aria-pressed", String(active));
-      });
+      const compareWidth = els.compare.getBoundingClientRect().width;
+      const afterImg = $(".compare-after", els.compare);
+      if (afterImg) afterImg.style.width = `${compareWidth}px`;
     };
 
-    els.evolutionDates.innerHTML = "";
-
-    ordered.forEach(entry => {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "evolution-date-chip";
-      button.dataset.entryId = entry.id;
-      button.setAttribute("aria-pressed", "false");
-      button.innerHTML = `
-        <strong>${shortDate(entry.date)}</strong>
-        <small>${entry.date.slice(0, 4)}</small>
-      `;
-      button.addEventListener("click", () => selectEvolution(entry.id));
-      els.evolutionDates.appendChild(button);
-    });
-
-    if (ordered.length) selectEvolution(ordered[0].id);
+    els.compareRange.addEventListener("input", event => setCompare(event.target.value));
+    window.addEventListener("resize", () => setCompare(els.compareRange.value));
+    setCompare(els.compareRange.value);
   }
 
   function setupNavigation() {
@@ -312,19 +281,31 @@
     sections.forEach(section => observer.observe(section));
   }
 
+  function setupViewSwitch() {
+    $$(".view-switch button").forEach(button => {
+      button.addEventListener("click", () => {
+        $$(".view-switch button").forEach(item => item.classList.remove("active"));
+        button.classList.add("active");
+        els.gallery.classList.toggle("mosaic", button.dataset.view === "mosaic");
+        els.gallery.classList.toggle("grid", button.dataset.view === "grid");
+      });
+    });
+  }
+
   async function init() {
     setupDialogs();
+    setupBeforeAfter();
     setupNavigation();
+    setupViewSwitch();
 
     try {
-      const response = await fetch("data/chantier.json?v=21", { cache: "no-store" });
+      const response = await fetch("data/chantier.json?v=6", { cache: "no-store" });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = await response.json();
 
       state.reports = [...data.reports].sort((a, b) => b.date.localeCompare(a.date));
       renderTimeline();
       renderReport(state.reports[0]);
-      renderEvolution(data.evolution || []);
       renderVideos(data.videos);
       updateStats(data.project, state.reports, data.videos);
 
