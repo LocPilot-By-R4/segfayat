@@ -1,0 +1,90 @@
+{
+  "title": "Évolution du chantier depuis le même point de vue",
+  "description": "Douze prises de vue réalisées depuis un angle similaire entre le 29 juin et le 30 septembre 2026.",
+  "photos": [
+    {
+      "id": "20260629_154253",
+      "date": "2026-06-29",
+      "src": "assets/photos/evolution-meme-angle/20260629_154253.webp",
+      "thumb": "assets/photos/evolution-meme-angle/20260629_154253-thumb.webp",
+      "alt": "Vue du chantier depuis le même point de vue le 29/06/2026"
+    },
+    {
+      "id": "20260708_093138",
+      "date": "2026-07-08",
+      "src": "assets/photos/evolution-meme-angle/20260708_093138.webp",
+      "thumb": "assets/photos/evolution-meme-angle/20260708_093138-thumb.webp",
+      "alt": "Vue du chantier depuis le même point de vue le 08/07/2026"
+    },
+    {
+      "id": "20260731_103258",
+      "date": "2026-07-31",
+      "src": "assets/photos/evolution-meme-angle/20260731_103258.webp",
+      "thumb": "assets/photos/evolution-meme-angle/20260731_103258-thumb.webp",
+      "alt": "Vue du chantier depuis le même point de vue le 31/07/2026"
+    },
+    {
+      "id": "20260814_105803",
+      "date": "2026-08-14",
+      "src": "assets/photos/evolution-meme-angle/20260814_105803.webp",
+      "thumb": "assets/photos/evolution-meme-angle/20260814_105803-thumb.webp",
+      "alt": "Vue du chantier depuis le même point de vue le 14/08/2026"
+    },
+    {
+      "id": "20260820_162445",
+      "date": "2026-08-20",
+      "src": "assets/photos/evolution-meme-angle/20260820_162445.webp",
+      "thumb": "assets/photos/evolution-meme-angle/20260820_162445-thumb.webp",
+      "alt": "Vue du chantier depuis le même point de vue le 20/08/2026"
+    },
+    {
+      "id": "20260828_105249",
+      "date": "2026-08-28",
+      "src": "assets/photos/evolution-meme-angle/20260828_105249.webp",
+      "thumb": "assets/photos/evolution-meme-angle/20260828_105249-thumb.webp",
+      "alt": "Vue du chantier depuis le même point de vue le 28/08/2026"
+    },
+    {
+      "id": "20260903_105244",
+      "date": "2026-09-03",
+      "src": "assets/photos/evolution-meme-angle/20260903_105244.webp",
+      "thumb": "assets/photos/evolution-meme-angle/20260903_105244-thumb.webp",
+      "alt": "Vue du chantier depuis le même point de vue le 03/09/2026"
+    },
+    {
+      "id": "20260909_174914",
+      "date": "2026-09-09",
+      "src": "assets/photos/evolution-meme-angle/20260909_174914.webp",
+      "thumb": "assets/photos/evolution-meme-angle/20260909_174914-thumb.webp",
+      "alt": "Vue du chantier depuis le même point de vue le 09/09/2026"
+    },
+    {
+      "id": "20260915_094336",
+      "date": "2026-09-15",
+      "src": "assets/photos/evolution-meme-angle/20260915_094336.webp",
+      "thumb": "assets/photos/evolution-meme-angle/20260915_094336-thumb.webp",
+      "alt": "Vue du chantier depuis le même point de vue le 15/09/2026"
+    },
+    {
+      "id": "20260917_135518",
+      "date": "2026-09-17",
+      "src": "assets/photos/evolution-meme-angle/20260917_135518.webp",
+      "thumb": "assets/photos/evolution-meme-angle/20260917_135518-thumb.webp",
+      "alt": "Vue du chantier depuis le même point de vue le 17/09/2026"
+    },
+    {
+      "id": "20260924_110847",
+      "date": "2026-09-24",
+      "src": "assets/photos/evolution-meme-angle/20260924_110847.webp",
+      "thumb": "assets/photos/evolution-meme-angle/20260924_110847-thumb.webp",
+      "alt": "Vue du chantier depuis le même point de vue le 24/09/2026"
+    },
+    {
+      "id": "20260930_144007",
+      "date": "2026-09-30",
+      "src": "assets/photos/evolution-meme-angle/20260930_144007.webp",
+      "thumb": "assets/photos/evolution-meme-angle/20260930_144007-thumb.webp",
+      "alt": "Vue du chantier depuis le même point de vue le 30/09/2026"
+    }
+  ]
+}

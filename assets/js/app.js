@@ -42,6 +42,28 @@
     compareWrap: $("#compare-after-wrap"),
     compareDivider: $("#compare-divider"),
     compare: $("#before-after"),
+    compareBeforeImage: $("#compare-before-image"),
+    compareAfterImage: $("#compare-after-image"),
+    compareBeforeSelect: $("#compare-before-select"),
+    compareAfterSelect: $("#compare-after-select"),
+    compareBeforeLabel: $("#compare-before-label"),
+    compareAfterLabel: $("#compare-after-label"),
+    compareSwap: $("#compare-swap"),
+    evolutionStrip: $("#evolution-strip"),
+    evolutionModeButton: $("#mode-evolution-button"),
+    compareModeButton: $("#mode-compare-button"),
+    evolutionPlayerPanel: $("#evolution-player-panel"),
+    comparePanel: $("#evolution-compare-panel"),
+    evolutionImageA: $("#evolution-image-a"),
+    evolutionImageB: $("#evolution-image-b"),
+    evolutionCurrentDate: $("#evolution-current-date"),
+    evolutionCounter: $("#evolution-counter"),
+    evolutionPlay: $("#evolution-play"),
+    evolutionPlayIcon: $(".evolution-play-icon"),
+    evolutionPlayLabel: $(".evolution-play-label"),
+    evolutionPrev: $("#evolution-prev"),
+    evolutionNext: $("#evolution-next"),
+    evolutionRange: $("#evolution-range"),
   };
 
   function formatDate(dateString) {
@@ -203,19 +225,273 @@
   }
 
   function setupBeforeAfter() {
+    if (!els.compare || !els.evolutionStrip) return;
+
+    let evolution = [];
+    let currentIndex = 0;
+    let autoplayTimer = null;
+    let activeLayer = "a";
+    let frameRequestToken = 0;
+    let currentMode = "evolution";
+    const autoplayDelay = 900;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const formatShortDate = dateString => {
+      const date = new Date(`${dateString}T12:00:00`);
+      return new Intl.DateTimeFormat("fr-FR", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      }).format(date);
+    };
+
+    const byId = id => evolution.find(item => item.id === id);
+
+    const stopAutoplay = () => {
+      if (autoplayTimer) {
+        window.clearInterval(autoplayTimer);
+        autoplayTimer = null;
+      }
+      els.evolutionPlay?.classList.remove("playing");
+      if (els.evolutionPlayIcon) els.evolutionPlayIcon.textContent = "▶";
+      if (els.evolutionPlayLabel) els.evolutionPlayLabel.textContent = "Voir l’évolution";
+      els.evolutionPlay?.setAttribute("aria-label", "Lire l’évolution");
+    };
+
+    const updateThumbs = index => {
+      const active = evolution[index];
+      if (!active) return;
+      $$(".evolution-thumb", els.evolutionStrip).forEach(button => {
+        const selected = button.dataset.evolutionId === active.id;
+        button.classList.toggle("active", selected);
+        button.setAttribute("aria-current", selected ? "true" : "false");
+      });
+    };
+
+    const showEvolutionFrame = (index, { animate = true } = {}) => {
+      if (!evolution.length) return;
+      currentIndex = Math.max(0, Math.min(evolution.length - 1, Number(index)));
+      const item = evolution[currentIndex];
+      const requestToken = ++frameRequestToken;
+      const outgoing = activeLayer === "a" ? els.evolutionImageA : els.evolutionImageB;
+      const incoming = activeLayer === "a" ? els.evolutionImageB : els.evolutionImageA;
+
+      const commit = () => {
+        if (requestToken !== frameRequestToken) return;
+        incoming.alt = item.alt;
+        incoming.setAttribute("aria-hidden", "false");
+
+        if (!reduceMotion && animate) {
+          requestAnimationFrame(() => {
+            incoming.classList.add("active");
+            outgoing.classList.remove("active");
+          });
+        } else {
+          incoming.classList.add("active");
+          outgoing.classList.remove("active");
+        }
+
+        outgoing.setAttribute("aria-hidden", "true");
+        activeLayer = activeLayer === "a" ? "b" : "a";
+      };
+
+      if (incoming.getAttribute("src") === item.src && incoming.complete) {
+        commit();
+      } else {
+        incoming.onload = () => {
+          incoming.onload = null;
+          commit();
+        };
+        incoming.src = item.src;
+      }
+
+      els.evolutionCurrentDate.textContent = formatShortDate(item.date);
+      els.evolutionCounter.textContent = `${currentIndex + 1} / ${evolution.length}`;
+      els.evolutionRange.value = String(currentIndex);
+      els.evolutionRange.setAttribute(
+        "aria-valuetext",
+        `${formatShortDate(item.date)}, relevé ${currentIndex + 1} sur ${evolution.length}`
+      );
+      updateThumbs(currentIndex);
+
+      const nextItem = evolution[currentIndex + 1];
+      if (nextItem) {
+        const preload = new Image();
+        preload.src = nextItem.src;
+      }
+    };
+
+    const startAutoplay = () => {
+      if (!evolution.length || currentMode !== "evolution") return;
+      if (currentIndex >= evolution.length - 1) {
+        showEvolutionFrame(0, { animate: false });
+      }
+      stopAutoplay();
+      els.evolutionPlay?.classList.add("playing");
+      if (els.evolutionPlayIcon) els.evolutionPlayIcon.textContent = "Ⅱ";
+      if (els.evolutionPlayLabel) els.evolutionPlayLabel.textContent = "Pause";
+      els.evolutionPlay?.setAttribute("aria-label", "Mettre l’évolution en pause");
+
+      autoplayTimer = window.setInterval(() => {
+        if (currentIndex >= evolution.length - 1) {
+          stopAutoplay();
+          return;
+        }
+        showEvolutionFrame(currentIndex + 1);
+      }, autoplayDelay);
+    };
+
+    const setMode = mode => {
+      currentMode = mode === "compare" ? "compare" : "evolution";
+      const evolutionActive = currentMode === "evolution";
+
+      els.evolutionModeButton.classList.toggle("active", evolutionActive);
+      els.compareModeButton.classList.toggle("active", !evolutionActive);
+      els.evolutionModeButton.setAttribute("aria-selected", String(evolutionActive));
+      els.compareModeButton.setAttribute("aria-selected", String(!evolutionActive));
+
+      els.evolutionPlayerPanel.hidden = !evolutionActive;
+      els.comparePanel.hidden = evolutionActive;
+      els.evolutionPlayerPanel.classList.toggle("active", evolutionActive);
+      els.comparePanel.classList.toggle("active", !evolutionActive);
+
+      if (!evolutionActive) {
+        stopAutoplay();
+        requestAnimationFrame(() => setCompare(els.compareRange.value));
+      }
+    };
+
     const setCompare = value => {
       const percent = Math.max(0, Math.min(100, Number(value)));
-      els.compareWrap.style.width = `${percent}%`;
+      els.compareWrap.style.width = `${100 - percent}%`;
       els.compareDivider.style.left = `${percent}%`;
 
       const compareWidth = els.compare.getBoundingClientRect().width;
-      const afterImg = $(".compare-after", els.compare);
-      if (afterImg) afterImg.style.width = `${compareWidth}px`;
+      if (els.compareAfterImage) els.compareAfterImage.style.width = `${compareWidth}px`;
     };
 
+    const updateCompareImages = () => {
+      const before = byId(els.compareBeforeSelect.value);
+      const after = byId(els.compareAfterSelect.value);
+      if (!before || !after) return;
+
+      els.compareBeforeImage.src = before.src;
+      els.compareBeforeImage.alt = before.alt;
+      els.compareAfterImage.src = after.src;
+      els.compareAfterImage.alt = after.alt;
+      els.compareBeforeLabel.textContent = formatShortDate(before.date);
+      els.compareAfterLabel.textContent = formatShortDate(after.date);
+
+      els.compare.setAttribute(
+        "aria-label",
+        `Comparaison du chantier entre le ${formatShortDate(before.date)} et le ${formatShortDate(after.date)}`
+      );
+
+      requestAnimationFrame(() => setCompare(els.compareRange.value));
+    };
+
+    const populateSelect = (select, selectedId) => {
+      select.innerHTML = "";
+      evolution.forEach(item => {
+        const option = document.createElement("option");
+        option.value = item.id;
+        option.textContent = formatShortDate(item.date);
+        option.selected = item.id === selectedId;
+        select.appendChild(option);
+      });
+    };
+
+    const renderEvolutionStrip = () => {
+      els.evolutionStrip.innerHTML = "";
+      evolution.forEach((item, index) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "evolution-thumb";
+        button.dataset.evolutionId = item.id;
+        button.setAttribute("aria-label", `Afficher le relevé du ${formatShortDate(item.date)}`);
+        button.innerHTML = `
+          <img src="${item.thumb}" alt="" loading="lazy">
+          <span>${formatShortDate(item.date)}</span>
+        `;
+        button.addEventListener("click", () => {
+          stopAutoplay();
+
+          if (currentMode === "evolution") {
+            showEvolutionFrame(index);
+          } else {
+            els.compareAfterSelect.value = item.id;
+            updateCompareImages();
+          }
+        });
+        els.evolutionStrip.appendChild(button);
+      });
+    };
+
+    els.evolutionModeButton?.addEventListener("click", () => setMode("evolution"));
+    els.compareModeButton?.addEventListener("click", () => setMode("compare"));
+
+    els.evolutionPlay?.addEventListener("click", () => {
+      if (autoplayTimer) stopAutoplay();
+      else startAutoplay();
+    });
+
+    els.evolutionPrev?.addEventListener("click", () => {
+      stopAutoplay();
+      showEvolutionFrame(Math.max(0, currentIndex - 1));
+    });
+
+    els.evolutionNext?.addEventListener("click", () => {
+      stopAutoplay();
+      showEvolutionFrame(Math.min(evolution.length - 1, currentIndex + 1));
+    });
+
+    els.evolutionRange?.addEventListener("input", event => {
+      stopAutoplay();
+      showEvolutionFrame(Number(event.target.value), { animate: false });
+    });
+
     els.compareRange.addEventListener("input", event => setCompare(event.target.value));
-    window.addEventListener("resize", () => setCompare(els.compareRange.value));
-    setCompare(els.compareRange.value);
+    window.addEventListener("resize", () => {
+      if (!els.comparePanel.hidden) setCompare(els.compareRange.value);
+    }, { passive: true });
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) stopAutoplay();
+    });
+
+    fetch("data/evolution.json?v=21", { cache: "no-store" })
+      .then(response => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      })
+      .then(data => {
+        evolution = Array.isArray(data.photos) ? data.photos : [];
+        if (evolution.length < 2) throw new Error("Pas assez de vues pour la comparaison.");
+
+        els.evolutionRange.max = String(evolution.length - 1);
+        populateSelect(els.compareBeforeSelect, evolution[0].id);
+        populateSelect(els.compareAfterSelect, evolution[evolution.length - 1].id);
+        renderEvolutionStrip();
+
+        els.compareBeforeSelect.addEventListener("change", updateCompareImages);
+        els.compareAfterSelect.addEventListener("change", updateCompareImages);
+        els.compareSwap.addEventListener("click", () => {
+          const before = els.compareBeforeSelect.value;
+          els.compareBeforeSelect.value = els.compareAfterSelect.value;
+          els.compareAfterSelect.value = before;
+          updateCompareImages();
+        });
+
+        showEvolutionFrame(0, { animate: false });
+        updateCompareImages();
+        setMode("evolution");
+
+      })
+      .catch(error => {
+        console.error("Impossible de charger l’évolution du chantier :", error);
+        stopAutoplay();
+        setCompare(els.compareRange.value);
+      });
   }
 
   function setupNavigation() {

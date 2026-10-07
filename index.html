@@ -8,7 +8,7 @@
   <title>Complexe hôtelier 4★+ | Suivi du chantier – Domaine de La Mongie</title>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core@5.15.1/index.min.css">
-  <link rel="stylesheet" href="assets/css/styles.css?v=19">
+  <link rel="stylesheet" href="assets/css/styles.css?v=21">
   <script type="importmap">
   {
     "imports": {
@@ -225,32 +225,149 @@
 
     <section class="section split-section">
       <div class="container split-grid">
-        <article class="feature-card" id="comparaison">
-          <div class="card-heading">
+        <article class="feature-card compare-feature evolution-feature" id="comparaison">
+          <div class="card-heading compare-card-heading">
             <div>
-              <p class="eyebrow">Même angle · évolution dans le temps</p>
-              <h2>Avant / Après</h2>
+              <p class="eyebrow">12 relevés · même point de vue</p>
+              <h2>Évolution du chantier</h2>
+              <p class="evolution-intro">
+                Du 29 juin au 30 septembre 2026, douze prises de vue réalisées depuis un angle similaire
+                permettent de parcourir visuellement la transformation du chantier, date après date.
+              </p>
             </div>
           </div>
 
-          <div class="compare" id="before-after">
-            <img class="compare-before" src="assets/photos/2026-07/20260708_093133.webp" alt="Vue du chantier le 8 juillet 2026">
-            <div class="compare-after-wrap" id="compare-after-wrap">
-              <img class="compare-after" src="assets/photos/2026-07/20260731_103258.webp" alt="Vue du chantier le 31 juillet 2026">
-            </div>
-            <div class="compare-divider" id="compare-divider" aria-hidden="true"></div>
-            <input
-              id="compare-range"
-              class="compare-range"
-              type="range"
-              min="0"
-              max="100"
-              value="50"
-              aria-label="Comparer la photo avant et la photo après">
-            <span class="compare-label before-label">8 juillet 2026</span>
-            <span class="compare-label after-label">31 juillet 2026</span>
+          <div class="evolution-mode-switch" role="tablist" aria-label="Mode de visualisation">
+            <button
+              class="evolution-mode-button active"
+              id="mode-evolution-button"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="evolution-player-panel">
+              <span aria-hidden="true">▶</span>
+              Voir l’évolution
+            </button>
+            <button
+              class="evolution-mode-button"
+              id="mode-compare-button"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="evolution-compare-panel">
+              <span aria-hidden="true">↔</span>
+              Comparer deux dates
+            </button>
           </div>
-          <p class="muted">Comparaison issue de deux vues réalisées depuis un point haut similaire au début et à la fin du mois de juillet.</p>
+
+          <div class="evolution-panel active" id="evolution-player-panel" role="tabpanel" aria-labelledby="mode-evolution-button">
+            <div class="evolution-player" id="evolution-player">
+              <div class="evolution-frame" id="evolution-frame">
+                <img
+                  class="evolution-frame-image active"
+                  id="evolution-image-a"
+                  src="assets/photos/evolution-meme-angle/20260629_154253.webp"
+                  alt="Vue du chantier depuis le même point de vue le 29 juin 2026">
+                <img
+                  class="evolution-frame-image"
+                  id="evolution-image-b"
+                  src="assets/photos/evolution-meme-angle/20260708_093138.webp"
+                  alt=""
+                  aria-hidden="true">
+                <div class="evolution-date-card" aria-live="polite">
+                  <span class="evolution-date-kicker">Relevé photographique</span>
+                  <strong id="evolution-current-date">29 juin 2026</strong>
+                </div>
+                <div class="evolution-counter" id="evolution-counter">1 / 12</div>
+              </div>
+
+              <div class="evolution-player-controls">
+                <button class="evolution-control" id="evolution-prev" type="button" aria-label="Voir la date précédente">‹</button>
+                <button class="evolution-play" id="evolution-play" type="button" aria-label="Lire l’évolution">
+                  <span class="evolution-play-icon" aria-hidden="true">▶</span>
+                  <span class="evolution-play-label">Voir l’évolution</span>
+                </button>
+                <button class="evolution-control" id="evolution-next" type="button" aria-label="Voir la date suivante">›</button>
+              </div>
+
+              <div class="evolution-scrubber">
+                <div class="evolution-scrubber-dates" aria-hidden="true">
+                  <span>29 juin</span>
+                  <span>30 septembre</span>
+                </div>
+                <input
+                  id="evolution-range"
+                  class="evolution-range"
+                  type="range"
+                  min="0"
+                  max="11"
+                  step="1"
+                  value="0"
+                  aria-label="Parcourir les relevés photographiques dans le temps">
+                <div class="evolution-months" aria-hidden="true">
+                  <span>Juin</span>
+                  <span>Juillet</span>
+                  <span>Août</span>
+                  <span>Septembre</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="evolution-panel" id="evolution-compare-panel" role="tabpanel" aria-labelledby="mode-compare-button" hidden>
+            <div class="compare-controls" aria-label="Choix des dates à comparer">
+              <label class="compare-select-wrap">
+                <span>Avant</span>
+                <select id="compare-before-select" aria-label="Choisir la date avant"></select>
+              </label>
+
+              <button class="compare-swap" id="compare-swap" type="button" aria-label="Inverser les deux dates" title="Inverser les dates">
+                ⇄
+              </button>
+
+              <label class="compare-select-wrap">
+                <span>Après</span>
+                <select id="compare-after-select" aria-label="Choisir la date après"></select>
+              </label>
+            </div>
+
+            <div class="compare" id="before-after">
+              <img
+                class="compare-before"
+                id="compare-before-image"
+                src="assets/photos/evolution-meme-angle/20260629_154253.webp"
+                alt="Vue du chantier depuis le même point de vue le 29 juin 2026">
+              <div class="compare-after-wrap" id="compare-after-wrap">
+                <img
+                  class="compare-after"
+                  id="compare-after-image"
+                  src="assets/photos/evolution-meme-angle/20260930_144007.webp"
+                  alt="Vue du chantier depuis le même point de vue le 30 septembre 2026">
+              </div>
+              <div class="compare-divider" id="compare-divider" aria-hidden="true"></div>
+              <input
+                id="compare-range"
+                class="compare-range"
+                type="range"
+                min="0"
+                max="100"
+                value="50"
+                aria-label="Déplacer la séparation entre la vue avant et la vue après">
+              <span class="compare-label before-label" id="compare-before-label">29 juin 2026</span>
+              <span class="compare-label after-label" id="compare-after-label">30 septembre 2026</span>
+            </div>
+          </div>
+
+          <div class="evolution-heading">
+            <strong>12 relevés, un même point de vue</strong>
+            <span>Cliquez sur une date pour vous y arrêter.</span>
+          </div>
+          <div class="evolution-strip" id="evolution-strip" aria-label="Les 12 relevés du même point de vue"></div>
+
+          <p class="muted compare-note">
+            Ce module restitue uniquement l’état visuel du chantier à chaque date de prise de vue.
+            Il ne constitue ni une mesure d’avancement ni une comparaison au planning prévisionnel.
+          </p>
         </article>
 
         <article class="feature-card" id="videos">
@@ -343,8 +460,8 @@
     </div>
   </dialog>
 
-  <script src="assets/js/app.js?v=19" defer></script>
-  <script src="assets/js/planning.js?v=19" defer></script>
-  <script type="module" src="assets/js/360-viewer.js?v=19"></script>
+  <script src="assets/js/app.js?v=21" defer></script>
+  <script src="assets/js/planning.js?v=21" defer></script>
+  <script type="module" src="assets/js/360-viewer.js?v=21"></script>
 </body>
 </html>

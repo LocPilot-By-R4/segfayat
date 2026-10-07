@@ -240,3 +240,28 @@ Les photos de juillet sont des panoramas classiques et non des images équirecta
 - sur mobile/tablette : perspective entière au-dessus du texte
 - conservation du filtrage V18 : seules les étapes disposant d'un reportage sont affichées
 - aucune référence visible à LocPilot
+
+
+## V20 — évolution même angle
+
+- base : V19
+- intégration des 12 photos fournies dans l’archive « Meme Angle »
+- période couverte : 29 juin → 30 septembre 2026
+- conversion WebP optimisée pour le web + miniatures dédiées
+- section Avant / Après enrichie avec deux sélecteurs de date
+- comparaison au curseur entre n’importe quelles deux dates
+- frise horizontale des 12 relevés, responsive mobile/desktop
+- aucune modification GitHub
+
+
+## V21 — évolution interactive
+
+- base : V20
+- section « Avant / Après » transformée en « Évolution du chantier »
+- mode principal « Voir l’évolution » avec lecture/pause, précédent/suivant et défilement automatique des 12 relevés
+- barre chronologique tactile et date courante dynamique
+- transitions douces entre les relevés
+- second mode « Comparer deux dates » conservant le curseur Avant / Après libre
+- les 12 miniatures servent de navigation directe dans les deux modes
+- rappel éditorial : état visuel daté uniquement, sans mesure d’avancement ni référence au planning
+- aucune modification GitHub
