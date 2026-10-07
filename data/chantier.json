@@ -251,6 +251,21 @@
           "alt": "Chantier du complexe hôtelier à La Mongie, 8 juillet 2026 vers 09 h 31"
         }
       ]
+    },
+    {
+      "id": "2026-06-29",
+      "date": "2026-06-29",
+      "phase": "Démarrage du chantier",
+      "title": "Démarrage du chantier",
+      "description": "Vue générale du site le 29 juin 2026, au tout début du chantier.",
+      "photoCount": 1,
+      "videoCount": 0,
+      "photos": [
+        {
+          "src": "assets/photos/2026-06/20260629_154337.webp",
+          "alt": "Vue générale du chantier de La Mongie au démarrage, 29 juin 2026"
+        }
+      ]
     }
   ],
   "videos": []

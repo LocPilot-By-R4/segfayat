@@ -38,10 +38,11 @@
     videoDialog: $("#video-dialog"),
     videoDialogTitle: $("#video-dialog-title"),
     videoDialogCopy: $("#video-dialog-copy"),
-    compareRange: $("#compare-range"),
-    compareWrap: $("#compare-after-wrap"),
-    compareDivider: $("#compare-divider"),
-    compare: $("#before-after"),
+    evolutionImage: $("#evolution-image"),
+    evolutionDate: $("#evolution-date-badge"),
+    evolutionTitle: $("#evolution-title"),
+    evolutionDescription: $("#evolution-description"),
+    evolutionDates: $("#evolution-dates"),
   };
 
   function formatDate(dateString) {
@@ -202,20 +203,53 @@
     });
   }
 
-  function setupBeforeAfter() {
-    const setCompare = value => {
-      const percent = Math.max(0, Math.min(100, Number(value)));
-      els.compareWrap.style.width = `${percent}%`;
-      els.compareDivider.style.left = `${percent}%`;
+  function renderEvolution(reports) {
+    if (!els.evolutionImage || !els.evolutionDates) return;
 
-      const compareWidth = els.compare.getBoundingClientRect().width;
-      const afterImg = $(".compare-after", els.compare);
-      if (afterImg) afterImg.style.width = `${compareWidth}px`;
+    const entries = [...reports]
+      .filter(report => Array.isArray(report.photos) && report.photos.length)
+      .sort((a, b) => a.date.localeCompare(b.date));
+
+    const shortDate = dateString => new Intl.DateTimeFormat("fr-FR", {
+      day: "numeric",
+      month: "short"
+    }).format(new Date(`${dateString}T12:00:00`));
+
+    const selectEvolution = reportId => {
+      const report = entries.find(item => item.id === reportId);
+      if (!report) return;
+
+      const photo = report.photos[0];
+      els.evolutionImage.src = photo.src;
+      els.evolutionImage.alt = photo.alt || `Vue du chantier du ${formatDate(report.date)}`;
+      els.evolutionDate.textContent = formatDate(report.date);
+      els.evolutionTitle.textContent = report.title;
+      els.evolutionDescription.textContent = report.description;
+
+      $$(".evolution-date-chip", els.evolutionDates).forEach(button => {
+        const active = button.dataset.reportId === report.id;
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-pressed", String(active));
+      });
     };
 
-    els.compareRange.addEventListener("input", event => setCompare(event.target.value));
-    window.addEventListener("resize", () => setCompare(els.compareRange.value));
-    setCompare(els.compareRange.value);
+    els.evolutionDates.innerHTML = "";
+
+    entries.forEach(report => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "evolution-date-chip";
+      button.dataset.reportId = report.id;
+      button.setAttribute("aria-pressed", "false");
+      button.innerHTML = `
+        <strong>${shortDate(report.date)}</strong>
+        <small>${report.date.slice(0, 4)}</small>
+      `;
+      button.addEventListener("click", () => selectEvolution(report.id));
+      els.evolutionDates.appendChild(button);
+    });
+
+    if (entries.length) selectEvolution(entries[0].id);
   }
 
   function setupNavigation() {
@@ -294,18 +328,18 @@
 
   async function init() {
     setupDialogs();
-    setupBeforeAfter();
     setupNavigation();
     setupViewSwitch();
 
     try {
-      const response = await fetch("data/chantier.json?v=6", { cache: "no-store" });
+      const response = await fetch("data/chantier.json?v=20", { cache: "no-store" });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = await response.json();
 
       state.reports = [...data.reports].sort((a, b) => b.date.localeCompare(a.date));
       renderTimeline();
       renderReport(state.reports[0]);
+      renderEvolution(state.reports);
       renderVideos(data.videos);
       updateStats(data.project, state.reports, data.videos);
 

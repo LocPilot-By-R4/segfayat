@@ -240,3 +240,13 @@ Les photos de juillet sont des panoramas classiques et non des images équirecta
 - sur mobile/tablette : perspective entière au-dessus du texte
 - conservation du filtrage V18 : seules les étapes disposant d'un reportage sont affichées
 - aucune référence visible à LocPilot
+
+
+## V20 — évolution chronologique
+
+- ajout du premier relevé photographique du 29 juin 2026
+- remplacement du module Avant / Après par une navigation chronologique des reportages
+- les dates disponibles sont générées automatiquement depuis les reportages photo
+- ajout de l'étape documentée « Démarrage »
+- conservation de la projection architecturale de l'hôtel dans le header
+- image du header optimisée en WebP
