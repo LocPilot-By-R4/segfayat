@@ -203,31 +203,28 @@
     });
   }
 
-  function renderEvolution(reports) {
+  function renderEvolution(entries = []) {
     if (!els.evolutionImage || !els.evolutionDates) return;
 
-    const entries = [...reports]
-      .filter(report => Array.isArray(report.photos) && report.photos.length)
-      .sort((a, b) => a.date.localeCompare(b.date));
+    const ordered = [...entries].sort((a, b) => a.date.localeCompare(b.date));
 
     const shortDate = dateString => new Intl.DateTimeFormat("fr-FR", {
       day: "numeric",
       month: "short"
     }).format(new Date(`${dateString}T12:00:00`));
 
-    const selectEvolution = reportId => {
-      const report = entries.find(item => item.id === reportId);
-      if (!report) return;
+    const selectEvolution = entryId => {
+      const entry = ordered.find(item => item.id === entryId);
+      if (!entry) return;
 
-      const photo = report.photos[0];
-      els.evolutionImage.src = photo.src;
-      els.evolutionImage.alt = photo.alt || `Vue du chantier du ${formatDate(report.date)}`;
-      els.evolutionDate.textContent = formatDate(report.date);
-      els.evolutionTitle.textContent = report.title;
-      els.evolutionDescription.textContent = report.description;
+      els.evolutionImage.src = entry.src;
+      els.evolutionImage.alt = entry.alt || `Vue du chantier du ${formatDate(entry.date)}`;
+      els.evolutionDate.textContent = formatDate(entry.date);
+      els.evolutionTitle.textContent = entry.title || "Évolution du chantier";
+      els.evolutionDescription.textContent = entry.description || "";
 
       $$(".evolution-date-chip", els.evolutionDates).forEach(button => {
-        const active = button.dataset.reportId === report.id;
+        const active = button.dataset.entryId === entry.id;
         button.classList.toggle("active", active);
         button.setAttribute("aria-pressed", String(active));
       });
@@ -235,21 +232,21 @@
 
     els.evolutionDates.innerHTML = "";
 
-    entries.forEach(report => {
+    ordered.forEach(entry => {
       const button = document.createElement("button");
       button.type = "button";
       button.className = "evolution-date-chip";
-      button.dataset.reportId = report.id;
+      button.dataset.entryId = entry.id;
       button.setAttribute("aria-pressed", "false");
       button.innerHTML = `
-        <strong>${shortDate(report.date)}</strong>
-        <small>${report.date.slice(0, 4)}</small>
+        <strong>${shortDate(entry.date)}</strong>
+        <small>${entry.date.slice(0, 4)}</small>
       `;
-      button.addEventListener("click", () => selectEvolution(report.id));
+      button.addEventListener("click", () => selectEvolution(entry.id));
       els.evolutionDates.appendChild(button);
     });
 
-    if (entries.length) selectEvolution(entries[0].id);
+    if (ordered.length) selectEvolution(ordered[0].id);
   }
 
   function setupNavigation() {
@@ -315,31 +312,19 @@
     sections.forEach(section => observer.observe(section));
   }
 
-  function setupViewSwitch() {
-    $$(".view-switch button").forEach(button => {
-      button.addEventListener("click", () => {
-        $$(".view-switch button").forEach(item => item.classList.remove("active"));
-        button.classList.add("active");
-        els.gallery.classList.toggle("mosaic", button.dataset.view === "mosaic");
-        els.gallery.classList.toggle("grid", button.dataset.view === "grid");
-      });
-    });
-  }
-
   async function init() {
     setupDialogs();
     setupNavigation();
-    setupViewSwitch();
 
     try {
-      const response = await fetch("data/chantier.json?v=20", { cache: "no-store" });
+      const response = await fetch("data/chantier.json?v=21", { cache: "no-store" });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = await response.json();
 
       state.reports = [...data.reports].sort((a, b) => b.date.localeCompare(a.date));
       renderTimeline();
       renderReport(state.reports[0]);
-      renderEvolution(state.reports);
+      renderEvolution(data.evolution || []);
       renderVideos(data.videos);
       updateStats(data.project, state.reports, data.videos);
 
