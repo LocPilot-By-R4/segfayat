@@ -265,3 +265,44 @@ Les photos de juillet sont des panoramas classiques et non des images équirecta
 - les 12 miniatures servent de navigation directe dans les deux modes
 - rappel éditorial : état visuel daté uniquement, sans mesure d’avancement ni référence au planning
 - aucune modification GitHub
+
+
+## V22 — archives terrain août 2026
+
+- base : V21
+- intégration du reportage d’août 2026 dans la section « Archives terrain »
+- 28 photos ajoutées, réparties sur 6 relevés : 4, 14, 15, 17, 20 et 28 août 2026
+- 3 vues déjà présentes dans le module « même point de vue » sont réutilisées afin d’éviter les doublons de fichiers
+- nouveaux médias convertis en WebP optimisé pour le web
+- les reportages restent factuels et datés, sans indication d’avancement par rapport au planning
+- aucune modification GitHub
+
+
+## V23 — refonte Archives terrain
+
+La section « Archives terrain » a été entièrement repensée côté UX/UI :
+
+- suppression de la longue timeline verticale
+- navigation horizontale compacte par cartes illustrées
+- filtres dynamiques par mois (Tous / Juillet / Août)
+- résumé automatique : nombre de reportages, nombre de photos et période documentée
+- reportage sélectionné présenté dans un grand panneau éditorial
+- mosaïque photo responsive, adaptée automatiquement au nombre d’images disponibles
+- indicateur +X sur la dernière vignette lorsque le reportage contient davantage d’images
+- navigation précédent / suivant sur desktop
+- défilement horizontal tactile sur mobile
+- CTA du reportage complet contextualisé avec le nombre réel de photos
+- conservation du fonctionnement de la galerie complète
+- aucune modification GitHub
+
+
+## V24 — premier relevé de juin
+
+- ajout du premier relevé photographique du chantier daté du 29 juin 2026
+- intégration dans « Archives terrain »
+- intitulé : « Premier relevé du chantier — 29 juin »
+- phase éditoriale : « Installation & préparation du chantier »
+- réutilisation de la vue WebP haute qualité déjà présente dans la série « même point de vue »
+- le filtre « Juin » est généré automatiquement dans la nouvelle navigation Archives terrain
+- Archives terrain : 12 reportages / 77 photos
+- aucune modification GitHub

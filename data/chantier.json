@@ -2,9 +2,512 @@
   "project": {
     "name": "Complexe hôtelier 4★+ – Domaine de La Mongie",
     "lastUpdate": "2026-09-30",
-    "currentPhase": "Archives terrain"
+    "currentPhase": "Suivi photographique — septembre 2026"
   },
   "reports": [
+    {
+      "id": "2026-09-30",
+      "date": "2026-09-30",
+      "phase": "Suivi photographique",
+      "title": "Relevé photographique du 30/09/2026",
+      "description": "2 prises de vue du chantier réalisées le 30/09/2026 ; consultation et téléchargement individuel des photographies.",
+      "photoCount": 2,
+      "videoCount": 0,
+      "photos": [
+        {
+          "src": "assets/photos/2026-09/20260930_144007.webp",
+          "thumb": "assets/photos/2026-09/20260930_144007-thumb.webp",
+          "alt": "Chantier de La Mongie, 30/09/2026 à 14 h 40"
+        },
+        {
+          "src": "assets/photos/2026-09/20260930_144503.webp",
+          "thumb": "assets/photos/2026-09/20260930_144503-thumb.webp",
+          "alt": "Chantier de La Mongie, 30/09/2026 à 14 h 45"
+        }
+      ]
+    },
+    {
+      "id": "2026-09-24",
+      "date": "2026-09-24",
+      "phase": "Suivi photographique",
+      "title": "Relevé photographique du 24/09/2026",
+      "description": "4 prises de vue du chantier réalisées le 24/09/2026 ; consultation et téléchargement individuel des photographies.",
+      "photoCount": 4,
+      "videoCount": 0,
+      "photos": [
+        {
+          "src": "assets/photos/2026-09/20260924_095727.webp",
+          "thumb": "assets/photos/2026-09/20260924_095727-thumb.webp",
+          "alt": "Chantier de La Mongie, 24/09/2026 à 09 h 57"
+        },
+        {
+          "src": "assets/photos/2026-09/20260924_110847.webp",
+          "thumb": "assets/photos/2026-09/20260924_110847-thumb.webp",
+          "alt": "Chantier de La Mongie, 24/09/2026 à 11 h 08"
+        },
+        {
+          "src": "assets/photos/2026-09/20260924_170849.webp",
+          "thumb": "assets/photos/2026-09/20260924_170849-thumb.webp",
+          "alt": "Chantier de La Mongie, 24/09/2026 à 17 h 08"
+        },
+        {
+          "src": "assets/photos/2026-09/20260924_171347.webp",
+          "thumb": "assets/photos/2026-09/20260924_171347-thumb.webp",
+          "alt": "Chantier de La Mongie, 24/09/2026 à 17 h 13"
+        }
+      ]
+    },
+    {
+      "id": "2026-09-21",
+      "date": "2026-09-21",
+      "phase": "Suivi photographique",
+      "title": "Relevé photographique du 21/09/2026",
+      "description": "1 prise de vue du chantier réalisées le 21/09/2026 ; consultation et téléchargement individuel des photographies.",
+      "photoCount": 1,
+      "videoCount": 0,
+      "photos": [
+        {
+          "src": "assets/photos/2026-09/20260921_191412.webp",
+          "thumb": "assets/photos/2026-09/20260921_191412-thumb.webp",
+          "alt": "Chantier de La Mongie, 21/09/2026 à 19 h 14"
+        }
+      ]
+    },
+    {
+      "id": "2026-09-17",
+      "date": "2026-09-17",
+      "phase": "Suivi photographique",
+      "title": "Relevé photographique du 17/09/2026",
+      "description": "11 prises de vue du chantier réalisées le 17/09/2026 ; consultation et téléchargement individuel des photographies.",
+      "photoCount": 11,
+      "videoCount": 0,
+      "photos": [
+        {
+          "src": "assets/photos/2026-09/20260917_133848.webp",
+          "thumb": "assets/photos/2026-09/20260917_133848-thumb.webp",
+          "alt": "Chantier de La Mongie, 17/09/2026 à 13 h 38"
+        },
+        {
+          "src": "assets/photos/2026-09/20260917_134155.webp",
+          "thumb": "assets/photos/2026-09/20260917_134155-thumb.webp",
+          "alt": "Chantier de La Mongie, 17/09/2026 à 13 h 41"
+        },
+        {
+          "src": "assets/photos/2026-09/20260917_134215.webp",
+          "thumb": "assets/photos/2026-09/20260917_134215-thumb.webp",
+          "alt": "Chantier de La Mongie, 17/09/2026 à 13 h 42"
+        },
+        {
+          "src": "assets/photos/2026-09/20260917_134326.webp",
+          "thumb": "assets/photos/2026-09/20260917_134326-thumb.webp",
+          "alt": "Chantier de La Mongie, 17/09/2026 à 13 h 43"
+        },
+        {
+          "src": "assets/photos/2026-09/20260917_134347.webp",
+          "thumb": "assets/photos/2026-09/20260917_134347-thumb.webp",
+          "alt": "Chantier de La Mongie, 17/09/2026 à 13 h 43"
+        },
+        {
+          "src": "assets/photos/2026-09/20260917_134410.webp",
+          "thumb": "assets/photos/2026-09/20260917_134410-thumb.webp",
+          "alt": "Chantier de La Mongie, 17/09/2026 à 13 h 44"
+        },
+        {
+          "src": "assets/photos/2026-09/20260917_134436.webp",
+          "thumb": "assets/photos/2026-09/20260917_134436-thumb.webp",
+          "alt": "Chantier de La Mongie, 17/09/2026 à 13 h 44"
+        },
+        {
+          "src": "assets/photos/2026-09/20260917_134454.webp",
+          "thumb": "assets/photos/2026-09/20260917_134454-thumb.webp",
+          "alt": "Chantier de La Mongie, 17/09/2026 à 13 h 44"
+        },
+        {
+          "src": "assets/photos/2026-09/20260917_134521.webp",
+          "thumb": "assets/photos/2026-09/20260917_134521-thumb.webp",
+          "alt": "Chantier de La Mongie, 17/09/2026 à 13 h 45"
+        },
+        {
+          "src": "assets/photos/2026-09/20260917_134647.webp",
+          "thumb": "assets/photos/2026-09/20260917_134647-thumb.webp",
+          "alt": "Chantier de La Mongie, 17/09/2026 à 13 h 46"
+        },
+        {
+          "src": "assets/photos/2026-09/20260917_135518.webp",
+          "thumb": "assets/photos/2026-09/20260917_135518-thumb.webp",
+          "alt": "Chantier de La Mongie, 17/09/2026 à 13 h 55"
+        }
+      ]
+    },
+    {
+      "id": "2026-09-15",
+      "date": "2026-09-15",
+      "phase": "Suivi photographique",
+      "title": "Relevé photographique du 15/09/2026",
+      "description": "1 prise de vue du chantier réalisées le 15/09/2026 ; consultation et téléchargement individuel des photographies.",
+      "photoCount": 1,
+      "videoCount": 0,
+      "photos": [
+        {
+          "src": "assets/photos/2026-09/20260915_094336.webp",
+          "thumb": "assets/photos/2026-09/20260915_094336-thumb.webp",
+          "alt": "Chantier de La Mongie, 15/09/2026 à 09 h 43"
+        }
+      ]
+    },
+    {
+      "id": "2026-09-11",
+      "date": "2026-09-11",
+      "phase": "Suivi photographique",
+      "title": "Relevé photographique du 11/09/2026",
+      "description": "1 prise de vue du chantier réalisées le 11/09/2026 ; consultation et téléchargement individuel des photographies.",
+      "photoCount": 1,
+      "videoCount": 0,
+      "photos": [
+        {
+          "src": "assets/photos/2026-09/20260911_082300.webp",
+          "thumb": "assets/photos/2026-09/20260911_082300-thumb.webp",
+          "alt": "Chantier de La Mongie, 11/09/2026 à 08 h 23"
+        }
+      ]
+    },
+    {
+      "id": "2026-09-10",
+      "date": "2026-09-10",
+      "phase": "Suivi photographique",
+      "title": "Relevé photographique du 10/09/2026",
+      "description": "6 prises de vue du chantier réalisées le 10/09/2026 ; consultation et téléchargement individuel des photographies.",
+      "photoCount": 6,
+      "videoCount": 0,
+      "photos": [
+        {
+          "src": "assets/photos/2026-09/20260910_095821.webp",
+          "thumb": "assets/photos/2026-09/20260910_095821-thumb.webp",
+          "alt": "Chantier de La Mongie, 10/09/2026 à 09 h 58"
+        },
+        {
+          "src": "assets/photos/2026-09/20260910_104527.webp",
+          "thumb": "assets/photos/2026-09/20260910_104527-thumb.webp",
+          "alt": "Chantier de La Mongie, 10/09/2026 à 10 h 45"
+        },
+        {
+          "src": "assets/photos/2026-09/20260910_104941.webp",
+          "thumb": "assets/photos/2026-09/20260910_104941-thumb.webp",
+          "alt": "Chantier de La Mongie, 10/09/2026 à 10 h 49"
+        },
+        {
+          "src": "assets/photos/2026-09/20260910_105018.webp",
+          "thumb": "assets/photos/2026-09/20260910_105018-thumb.webp",
+          "alt": "Chantier de La Mongie, 10/09/2026 à 10 h 50"
+        },
+        {
+          "src": "assets/photos/2026-09/20260910_154106.webp",
+          "thumb": "assets/photos/2026-09/20260910_154106-thumb.webp",
+          "alt": "Chantier de La Mongie, 10/09/2026 à 15 h 41"
+        },
+        {
+          "src": "assets/photos/2026-09/20260910_154151.webp",
+          "thumb": "assets/photos/2026-09/20260910_154151-thumb.webp",
+          "alt": "Chantier de La Mongie, 10/09/2026 à 15 h 41"
+        }
+      ]
+    },
+    {
+      "id": "2026-09-09",
+      "date": "2026-09-09",
+      "phase": "Suivi photographique",
+      "title": "Relevé photographique du 09/09/2026",
+      "description": "1 prise de vue du chantier réalisées le 09/09/2026 ; consultation et téléchargement individuel des photographies.",
+      "photoCount": 1,
+      "videoCount": 0,
+      "photos": [
+        {
+          "src": "assets/photos/2026-09/20260909_174923.webp",
+          "thumb": "assets/photos/2026-09/20260909_174923-thumb.webp",
+          "alt": "Chantier de La Mongie, 09/09/2026 à 17 h 49"
+        }
+      ]
+    },
+    {
+      "id": "2026-09-07",
+      "date": "2026-09-07",
+      "phase": "Suivi photographique",
+      "title": "Relevé photographique du 07/09/2026",
+      "description": "10 prises de vue du chantier réalisées le 07/09/2026 ; consultation et téléchargement individuel des photographies.",
+      "photoCount": 10,
+      "videoCount": 0,
+      "photos": [
+        {
+          "src": "assets/photos/2026-09/20260907_084409.webp",
+          "thumb": "assets/photos/2026-09/20260907_084409-thumb.webp",
+          "alt": "Chantier de La Mongie, 07/09/2026 à 08 h 44"
+        },
+        {
+          "src": "assets/photos/2026-09/20260907_084634.webp",
+          "thumb": "assets/photos/2026-09/20260907_084634-thumb.webp",
+          "alt": "Chantier de La Mongie, 07/09/2026 à 08 h 46"
+        },
+        {
+          "src": "assets/photos/2026-09/20260907_100444.webp",
+          "thumb": "assets/photos/2026-09/20260907_100444-thumb.webp",
+          "alt": "Chantier de La Mongie, 07/09/2026 à 10 h 04"
+        },
+        {
+          "src": "assets/photos/2026-09/20260907_111630.webp",
+          "thumb": "assets/photos/2026-09/20260907_111630-thumb.webp",
+          "alt": "Chantier de La Mongie, 07/09/2026 à 11 h 16"
+        },
+        {
+          "src": "assets/photos/2026-09/20260907_113659.webp",
+          "thumb": "assets/photos/2026-09/20260907_113659-thumb.webp",
+          "alt": "Chantier de La Mongie, 07/09/2026 à 11 h 36"
+        },
+        {
+          "src": "assets/photos/2026-09/20260907_124700.webp",
+          "thumb": "assets/photos/2026-09/20260907_124700-thumb.webp",
+          "alt": "Chantier de La Mongie, 07/09/2026 à 12 h 47"
+        },
+        {
+          "src": "assets/photos/2026-09/20260907_124813.webp",
+          "thumb": "assets/photos/2026-09/20260907_124813-thumb.webp",
+          "alt": "Chantier de La Mongie, 07/09/2026 à 12 h 48"
+        },
+        {
+          "src": "assets/photos/2026-09/20260907_124825.webp",
+          "thumb": "assets/photos/2026-09/20260907_124825-thumb.webp",
+          "alt": "Chantier de La Mongie, 07/09/2026 à 12 h 48"
+        },
+        {
+          "src": "assets/photos/2026-09/20260907_143621.webp",
+          "thumb": "assets/photos/2026-09/20260907_143621-thumb.webp",
+          "alt": "Chantier de La Mongie, 07/09/2026 à 14 h 36"
+        },
+        {
+          "src": "assets/photos/2026-09/20260907_165324.webp",
+          "thumb": "assets/photos/2026-09/20260907_165324-thumb.webp",
+          "alt": "Chantier de La Mongie, 07/09/2026 à 16 h 53"
+        }
+      ]
+    },
+    {
+      "id": "2026-09-03",
+      "date": "2026-09-03",
+      "phase": "Suivi photographique",
+      "title": "Relevé photographique du 03/09/2026",
+      "description": "6 prises de vue du chantier réalisées le 03/09/2026 ; consultation et téléchargement individuel des photographies.",
+      "photoCount": 6,
+      "videoCount": 0,
+      "photos": [
+        {
+          "src": "assets/photos/2026-09/20260903_105244.webp",
+          "thumb": "assets/photos/2026-09/20260903_105244-thumb.webp",
+          "alt": "Chantier de La Mongie, 03/09/2026 à 10 h 52"
+        },
+        {
+          "src": "assets/photos/2026-09/20260903_111251.webp",
+          "thumb": "assets/photos/2026-09/20260903_111251-thumb.webp",
+          "alt": "Chantier de La Mongie, 03/09/2026 à 11 h 12"
+        },
+        {
+          "src": "assets/photos/2026-09/20260903_111301.webp",
+          "thumb": "assets/photos/2026-09/20260903_111301-thumb.webp",
+          "alt": "Chantier de La Mongie, 03/09/2026 à 11 h 13"
+        },
+        {
+          "src": "assets/photos/2026-09/20260903_111319.webp",
+          "thumb": "assets/photos/2026-09/20260903_111319-thumb.webp",
+          "alt": "Chantier de La Mongie, 03/09/2026 à 11 h 13"
+        },
+        {
+          "src": "assets/photos/2026-09/20260903_111718.webp",
+          "thumb": "assets/photos/2026-09/20260903_111718-thumb.webp",
+          "alt": "Chantier de La Mongie, 03/09/2026 à 11 h 17"
+        },
+        {
+          "src": "assets/photos/2026-09/20260903_111727.webp",
+          "thumb": "assets/photos/2026-09/20260903_111727-thumb.webp",
+          "alt": "Chantier de La Mongie, 03/09/2026 à 11 h 17"
+        }
+      ]
+    },
+    {
+      "id": "2026-08-28",
+      "date": "2026-08-28",
+      "phase": "Fondations & infrastructures",
+      "title": "État du chantier au 28 août",
+      "description": "Deux vues d’ensemble depuis le point haut, montrant l’évolution de l’emprise du chantier et des ouvrages visibles en fond de fouille.",
+      "photoCount": 2,
+      "videoCount": 0,
+      "photos": [
+        {
+          "src": "assets/photos/2026-08/20260828_103907.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 28 août 2026 vers 10 h 39"
+        },
+        {
+          "src": "assets/photos/evolution-meme-angle/20260828_105249.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 28 août 2026 vers 10 h 52"
+        }
+      ]
+    },
+    {
+      "id": "2026-08-20",
+      "date": "2026-08-20",
+      "phase": "Fondations & infrastructures",
+      "title": "Point d’étape du 20 août",
+      "description": "Quatre vues montrant les interventions dans le fond de fouille, les armatures visibles et les travaux autour des ouvrages d’infrastructure.",
+      "photoCount": 4,
+      "videoCount": 0,
+      "photos": [
+        {
+          "src": "assets/photos/2026-08/20260820_161216.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 20 août 2026 vers 16 h 12"
+        },
+        {
+          "src": "assets/photos/2026-08/20260820_161315.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 20 août 2026 vers 16 h 13"
+        },
+        {
+          "src": "assets/photos/2026-08/20260820_161329.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 20 août 2026 vers 16 h 13"
+        },
+        {
+          "src": "assets/photos/evolution-meme-angle/20260820_162445.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 20 août 2026 vers 16 h 24"
+        }
+      ]
+    },
+    {
+      "id": "2026-08-17",
+      "date": "2026-08-17",
+      "phase": "Fondations & infrastructures",
+      "title": "Suivi du chantier du 17 août",
+      "description": "Trois vues matinales du fond de fouille, des terrassements et des engins présents dans l’emprise du chantier.",
+      "photoCount": 3,
+      "videoCount": 0,
+      "photos": [
+        {
+          "src": "assets/photos/2026-08/20260817_091215.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 17 août 2026 vers 9 h 12"
+        },
+        {
+          "src": "assets/photos/2026-08/20260817_091230.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 17 août 2026 vers 9 h 12"
+        },
+        {
+          "src": "assets/photos/2026-08/20260817_091305.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 17 août 2026 vers 9 h 13"
+        }
+      ]
+    },
+    {
+      "id": "2026-08-15",
+      "date": "2026-08-15",
+      "phase": "Fondations & infrastructures",
+      "title": "Vue générale du 15 août",
+      "description": "Vue générale réalisée en soirée, montrant l’état du fond de fouille et des zones de travail au centre de l’emprise.",
+      "photoCount": 1,
+      "videoCount": 0,
+      "photos": [
+        {
+          "src": "assets/photos/2026-08/20260815_205829.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 15 août 2026 vers 20 h 58"
+        }
+      ]
+    },
+    {
+      "id": "2026-08-14",
+      "date": "2026-08-14",
+      "phase": "Fondations & infrastructures",
+      "title": "Reportage détaillé du 14 août",
+      "description": "Reportage complet associant vues d’ensemble et vues rapprochées : terrassements, armatures, coffrages, grue, engins et opérations de bétonnage visibles sur les différentes zones du chantier.",
+      "photoCount": 15,
+      "videoCount": 0,
+      "photos": [
+        {
+          "src": "assets/photos/evolution-meme-angle/20260814_105803.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 14 août 2026 vers 10 h 58"
+        },
+        {
+          "src": "assets/photos/2026-08/20260814_110131.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 14 août 2026 vers 11 h 01"
+        },
+        {
+          "src": "assets/photos/2026-08/20260814_110146.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 14 août 2026 vers 11 h 01"
+        },
+        {
+          "src": "assets/photos/2026-08/20260814_111442.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 14 août 2026 vers 11 h 14"
+        },
+        {
+          "src": "assets/photos/2026-08/20260814_111715.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 14 août 2026 vers 11 h 17"
+        },
+        {
+          "src": "assets/photos/2026-08/20260814_111936.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 14 août 2026 vers 11 h 19"
+        },
+        {
+          "src": "assets/photos/2026-08/20260814_111955.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 14 août 2026 vers 11 h 19"
+        },
+        {
+          "src": "assets/photos/2026-08/20260814_112128.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 14 août 2026 vers 11 h 21"
+        },
+        {
+          "src": "assets/photos/2026-08/20260814_112442.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 14 août 2026 vers 11 h 24"
+        },
+        {
+          "src": "assets/photos/2026-08/20260814_112512.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 14 août 2026 vers 11 h 25"
+        },
+        {
+          "src": "assets/photos/2026-08/20260814_124527.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 14 août 2026 vers 12 h 45"
+        },
+        {
+          "src": "assets/photos/2026-08/20260814_125355.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 14 août 2026 vers 12 h 53"
+        },
+        {
+          "src": "assets/photos/2026-08/20260814_125546.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 14 août 2026 vers 12 h 55"
+        },
+        {
+          "src": "assets/photos/2026-08/20260814_130628.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 14 août 2026 vers 13 h 06"
+        },
+        {
+          "src": "assets/photos/2026-08/20260814_130637.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 14 août 2026 vers 13 h 06"
+        }
+      ]
+    },
+    {
+      "id": "2026-08-04",
+      "date": "2026-08-04",
+      "phase": "Terrassement & infrastructures",
+      "title": "Suivi du chantier du 4 août",
+      "description": "Trois vues de terrain montrant les terrassements en cours, les engins en intervention et les ouvrages d’infrastructure visibles au pied des soutènements.",
+      "photoCount": 3,
+      "videoCount": 0,
+      "photos": [
+        {
+          "src": "assets/photos/2026-08/20260804_143300.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 4 août 2026 vers 14 h 33"
+        },
+        {
+          "src": "assets/photos/2026-08/20260804_143402.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 4 août 2026 vers 14 h 34"
+        },
+        {
+          "src": "assets/photos/2026-08/20260804_143617.webp",
+          "alt": "Chantier du complexe hôtelier à La Mongie, 4 août 2026 vers 14 h 36"
+        }
+      ]
+    },
     {
       "id": "2026-07-31",
       "date": "2026-07-31",
@@ -249,6 +752,21 @@
         {
           "src": "assets/photos/2026-07/20260708_093138.webp",
           "alt": "Chantier du complexe hôtelier à La Mongie, 8 juillet 2026 vers 09 h 31"
+        }
+      ]
+    },
+    {
+      "id": "2026-06-29",
+      "date": "2026-06-29",
+      "phase": "Installation & préparation du chantier",
+      "title": "Premier relevé du chantier — 29 juin",
+      "description": "Première vue documentée depuis le point haut : vue d’ensemble de l’emprise du chantier, des installations présentes sur site et des engins, avec la station en arrière-plan.",
+      "photoCount": 1,
+      "videoCount": 0,
+      "photos": [
+        {
+          "src": "assets/photos/evolution-meme-angle/20260629_154253.webp",
+          "alt": "Première vue documentée du chantier du complexe hôtelier à La Mongie, le 29 juin 2026"
         }
       ]
     }

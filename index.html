@@ -8,7 +8,7 @@
   <title>Complexe hôtelier 4★+ | Suivi du chantier – Domaine de La Mongie</title>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core@5.15.1/index.min.css">
-  <link rel="stylesheet" href="assets/css/styles.css?v=21">
+  <link rel="stylesheet" href="assets/css/styles.css?v=25.4">
   <script type="importmap">
   {
     "imports": {
@@ -147,42 +147,83 @@
       </div>
     </section>
 
-    <section class="section section-dark" id="reportages">
+    <section class="section section-dark archive-section" id="reportages">
       <div class="container">
-        <div class="section-heading">
-          <div>
+        <div class="archive-header">
+          <div class="archive-header-copy">
             <p class="eyebrow">Archives terrain</p>
-            <h2>Reportages documentés</h2>
-            <p>Photos et relevés réalisés sur le chantier, classés par date.</p>
+            <h2>Le chantier, reportage après reportage</h2>
+            <p>
+              Parcourez les relevés photographiques réalisés sur le terrain. Chaque date ouvre un reportage
+              complet, sans interprétation de l’avancement ni comparaison au planning.
+            </p>
           </div>
-          <button class="btn btn-ghost" type="button" id="show-all-reportages">Parcourir les reportages</button>
+
+          <div class="archive-stats" aria-label="Résumé des archives terrain">
+            <div class="archive-stat">
+              <strong id="archive-stat-reports">—</strong>
+              <span>reportages</span>
+            </div>
+            <div class="archive-stat">
+              <strong id="archive-stat-photos">—</strong>
+              <span>photos</span>
+            </div>
+            <div class="archive-stat archive-stat-wide">
+              <strong id="archive-stat-period">—</strong>
+              <span>période documentée</span>
+            </div>
+          </div>
         </div>
 
-        <div class="timeline-layout">
-          <aside class="timeline-panel" aria-label="Dates du chantier">
-            <div id="timeline-list" class="timeline-list"></div>
-          </aside>
-
-          <div class="reportage-panel" id="photos">
-            <div class="reportage-heading">
-              <div>
-                <p class="eyebrow" id="reportage-date">—</p>
-                <h3 id="reportage-title">Chargement…</h3>
-                <p id="reportage-description"></p>
-              </div>
-              <div class="view-switch" aria-label="Choix d'affichage">
-                <button type="button" class="active" data-view="mosaic" aria-label="Mosaïque">▦</button>
-                <button type="button" data-view="grid" aria-label="Grille">▥</button>
-              </div>
+        <div class="archive-browser">
+          <div class="archive-toolbar">
+            <div class="archive-filter-group">
+              <span class="archive-toolbar-label">Période</span>
+              <div class="archive-filters" id="archive-filters" role="group" aria-label="Filtrer les reportages par mois"></div>
             </div>
 
-            <div class="photo-grid mosaic" id="reportage-gallery"></div>
+            <div class="archive-nav-actions" aria-label="Navigation entre les reportages">
+              <button type="button" id="archive-prev" aria-label="Reportage précédent">‹</button>
+              <button type="button" id="archive-next" aria-label="Reportage suivant">›</button>
+            </div>
+          </div>
 
-            <button class="btn btn-outline" type="button" id="open-gallery">
-              Voir le reportage complet
+          <div class="archive-report-rail" id="archive-report-list" aria-label="Reportages disponibles"></div>
+        </div>
+
+        <article class="reportage-panel archive-feature" id="photos">
+          <div class="archive-feature-heading">
+            <div class="archive-feature-copy">
+              <div class="archive-feature-meta">
+                <span class="archive-date-pill" id="reportage-date">—</span>
+                <span class="archive-phase-pill" id="reportage-phase">—</span>
+              </div>
+              <h3 id="reportage-title">Chargement…</h3>
+              <p id="reportage-description"></p>
+            </div>
+
+            <div class="archive-feature-count" aria-label="Nombre de photos du reportage">
+              <strong id="reportage-photo-count">—</strong>
+              <span>photos</span>
+            </div>
+          </div>
+
+          <div class="media-selection-controls" aria-label="Sélection et téléchargement des médias">
+            <button type="button" class="btn btn-outline" id="select-report">Sélectionner tout le reportage</button>
+            <button type="button" class="btn btn-outline" id="select-all-reports">Sélectionner tous les médias</button>
+            <button type="button" class="btn btn-outline" id="clear-selection">Effacer la sélection</button>
+            <button type="button" class="btn btn-primary" id="download-selection" disabled>Télécharger la sélection (0)</button>
+            <span class="media-selection-status" id="media-selection-status" aria-live="polite">Aucun média sélectionné</span>
+          </div>
+          <div class="photo-grid archive-mosaic" id="reportage-gallery"></div>
+
+          <div class="archive-feature-footer">
+            <p id="reportage-caption">Sélection d’images du reportage.</p>
+            <button class="btn btn-outline archive-open-gallery" type="button" id="open-gallery">
+              Ouvrir le reportage complet
             </button>
           </div>
-        </div>
+        </article>
       </div>
     </section>
 
@@ -209,6 +250,7 @@
               <span>3 septembre 2026</span>
             </div>
             <div id="viewer" aria-label="Visionneuse panoramique 360 degrés"></div>
+            <div class="panorama-media-actions"><button type="button" id="pano-select-current" class="btn btn-outline">Sélectionner ce panorama</button><button type="button" id="pano-download-current" class="btn btn-outline">Télécharger ce panorama 360°</button><button type="button" id="pano-select-all" class="btn btn-outline">Sélectionner les 7 panoramas</button></div>
 
             <div id="viewer-fallback" class="viewer-fallback" hidden>
               <div class="viewer-error-card">
@@ -260,6 +302,7 @@
             </button>
           </div>
 
+          <p class="evolution-launch-hint">Cliquez sur « Voir l’évolution » pour lancer le diaporama en plein écran.</p>
           <div class="evolution-panel active" id="evolution-player-panel" role="tabpanel" aria-labelledby="mode-evolution-button">
             <div class="evolution-player" id="evolution-player">
               <div class="evolution-frame" id="evolution-frame">
@@ -438,6 +481,8 @@
     </div>
   </footer>
 
+  <dialog id="evolution-fullscreen" class="evolution-fullscreen" aria-label="Évolution du chantier en plein écran"><div class="evolution-modal-bar"><strong>Évolution du chantier · relevés chronologiques</strong><button type="button" id="evolution-close">✕ Fermer</button></div><div id="evolution-fullscreen-slot"></div></dialog>
+
   <dialog class="media-dialog" id="gallery-dialog">
     <button class="dialog-close" type="button" data-dialog-close aria-label="Fermer">×</button>
     <div class="dialog-content">
@@ -445,8 +490,27 @@
         <p class="eyebrow" id="dialog-date"></p>
         <h2 id="dialog-title"></h2>
       </div>
+      <div class="media-dialog-selection"><button type="button" id="dialog-select-report">Sélectionner tout le reportage</button><button type="button" id="dialog-download-selection">Télécharger la sélection</button></div>
       <div class="dialog-gallery" id="dialog-gallery"></div>
     </div>
+  </dialog>
+
+  <dialog class="photo-viewer" id="photo-viewer" aria-label="Photographie en plein écran">
+    <div class="photo-viewer-toolbar">
+      <div class="photo-viewer-meta"><strong id="photo-viewer-date"></strong><span id="photo-viewer-count" aria-live="polite"></span></div>
+      <div class="photo-viewer-actions">
+        <button type="button" id="photo-viewer-select" aria-pressed="false">Sélectionner cette photo</button>
+        <button type="button" id="photo-viewer-download">Télécharger</button>
+        <button type="button" id="photo-viewer-zoom" aria-label="Agrandir ou réduire la photographie">Zoom +</button>
+        <button type="button" data-dialog-close aria-label="Fermer la photographie">✕</button>
+      </div>
+    </div>
+    <div class="photo-viewer-stage">
+      <button type="button" class="photo-viewer-arrow" id="photo-viewer-prev" aria-label="Photo précédente">‹</button>
+      <div class="photo-viewer-image-wrap"><img id="photo-viewer-image" alt="" draggable="false"></div>
+      <button type="button" class="photo-viewer-arrow" id="photo-viewer-next" aria-label="Photo suivante">›</button>
+    </div>
+    <div class="photo-viewer-hint">← → Navigation · Échap pour fermer · Molette ou double-clic pour zoomer</div>
   </dialog>
 
   <dialog class="media-dialog video-dialog" id="video-dialog">
@@ -460,8 +524,8 @@
     </div>
   </dialog>
 
-  <script src="assets/js/app.js?v=21" defer></script>
-  <script src="assets/js/planning.js?v=21" defer></script>
-  <script type="module" src="assets/js/360-viewer.js?v=21"></script>
+  <script src="assets/js/app.js?v=25.3" defer></script>
+  <script src="assets/js/planning.js?v=22" defer></script>
+  <script type="module" src="assets/js/360-viewer.js?v=25.3"></script>
 </body>
 </html>
