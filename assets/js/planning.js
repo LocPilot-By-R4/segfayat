@@ -1,70 +1,34 @@
 (() => {
-  "use strict";
-
-  const rail = document.getElementById("schedule-rail");
-  const cards = document.getElementById("schedule-cards");
-  if (!rail || !cards) return;
-
-  function hasMedia(phase) {
-    return Boolean(phase?.media?.photos || phase?.media?.panos);
-  }
-
-  function mediaHtml(media) {
-    let html = "";
-    if (media.photos) html += '<a href="#photos">▧ Voir le reportage photo</a>';
-    if (media.panos) html += '<a href="#immersion">◎ Explorer le reportage 360°</a>';
-    if (media.label) html += '<span>' + media.label + '</span>';
-    return html;
-  }
-
-  function render(data) {
-    rail.innerHTML = "";
-    cards.innerHTML = "";
-
-    const documentedPhases = data.phases.filter(hasMedia);
-
-    documentedPhases.forEach((phase, index) => {
-      const step = document.createElement("button");
-      step.type = "button";
-      step.className = "schedule-step";
-      step.setAttribute("aria-label", "Voir les reportages de l’étape " + phase.label);
-      step.innerHTML =
-        '<span class="schedule-dot">' + String(index + 1).padStart(2, "0") + '</span>' +
-        '<strong>' + phase.label + '</strong>';
-      step.addEventListener("click", () => {
-        document.getElementById("phase-" + phase.id)?.scrollIntoView({
-          behavior: "smooth",
-          block: "center"
-        });
-      });
-      rail.appendChild(step);
-
-      const card = document.createElement("article");
-      card.className = "schedule-card";
-      card.id = "phase-" + phase.id;
-
-      const description = phase.description
-        ? '<p class="schedule-description">' + phase.description + '</p>'
-        : "";
-
-      card.innerHTML =
-        '<div class="schedule-card-top"><div><h4>' + phase.label + '</h4></div></div>' +
-        description +
-        '<div class="schedule-media">' + mediaHtml(phase.media) + '</div>';
-
-      cards.appendChild(card);
-    });
-
-    if (!documentedPhases.length) {
-      cards.innerHTML = '<div class="media-empty"><div><strong>Aucun reportage disponible</strong><span>Les étapes apparaîtront ici au fur et à mesure des nouveaux relevés.</span></div></div>';
-    }
-  }
-
-  fetch("data/planning.json?v=18", { cache: "no-store" })
-    .then(response => {
-      if (!response.ok) throw new Error("HTTP " + response.status);
-      return response.json();
-    })
-    .then(render)
-    .catch(error => console.error("Étapes documentées indisponibles :", error));
+ "use strict";
+ const rail=document.getElementById('schedule-rail');
+ const cards=document.getElementById('schedule-cards');
+ if(!rail||!cards)return;
+ const fmt=s=>new Intl.DateTimeFormat('fr-FR',{day:'2-digit',month:'short',year:'numeric'}).format(new Date(s+'T12:00:00'));
+ const safe=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ function viewReport(date){
+   window.dispatchEvent(new CustomEvent('seg:open-report',{detail:{id:date}}));
+ }
+ function render(data){
+   rail.replaceChildren();cards.replaceChildren();
+   data.phases.forEach((phase,i)=>{
+     const btn=document.createElement('button');btn.className='schedule-step';btn.type='button';
+     btn.innerHTML=`<span class="schedule-dot">${String(i+1).padStart(2,'0')}</span><strong>${safe(phase.label)}</strong>`;
+     btn.setAttribute('aria-label',`Accéder à l'étape : ${phase.label}`);
+     btn.addEventListener('click',()=>document.getElementById('phase-'+phase.id)?.scrollIntoView({behavior:'smooth',block:'start'}));
+     rail.append(btn);
+     const card=document.createElement('article');card.className='schedule-card documented-phase';card.id='phase-'+phase.id;
+     const recent=[...phase.dates].sort().reverse();
+     const period=`${fmt(phase.dates[0])} — ${fmt(phase.dates[phase.dates.length-1])}`;
+     card.innerHTML=`<div class="documented-visual"><img loading="lazy" src="${safe(phase.cover.src)}" alt="${safe(phase.cover.alt)}"><span class="documented-number">ÉTAPE ${String(i+1).padStart(2,'0')}</span></div>
+     <div class="documented-content"><p class="documented-period">${safe(period)}</p><h4>${safe(phase.label)}</h4><p class="schedule-description">${safe(phase.description)}</p>
+     <div class="documented-metrics"><span><strong>${phase.reportCount}</strong> reportages associés</span><span><strong>${phase.photoCount}</strong> photos dans ces reportages</span>${phase.has360?'<span>◎ Immersion 360° disponible</span>':''}</div>
+     <p class="documented-detail-title">Consulter un relevé daté</p><div class="documented-dates"></div>
+     <div class="documented-actions"><button type="button" class="documented-open">Voir le dernier reportage ↗</button>${phase.has360?'<a href="#immersion">Explorer les vues 360° ↗</a>':''}</div></div>`;
+     card.querySelector('.documented-open').addEventListener('click',()=>viewReport(recent[0]));
+     const datesEl=card.querySelector('.documented-dates');
+     recent.forEach(date=>{const b=document.createElement('button');b.type='button';b.textContent=fmt(date);b.setAttribute('aria-label','Ouvrir le reportage du '+fmt(date));b.addEventListener('click',()=>viewReport(date));datesEl.append(b);});
+     cards.append(card);
+   });
+ }
+ fetch('data/etapes-documentees.json?v=25.5',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json();}).then(render).catch(err=>{console.error(err);cards.textContent='Les étapes documentées sont momentanément indisponibles.';});
 })();

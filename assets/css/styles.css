@@ -4489,3 +4489,38 @@ input {
   outline: 3px solid #f0c77c;
   outline-offset: 3px;
 }
+
+/* V25.5 — Lecture photographique par familles de travaux */
+.schedule-rail{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.schedule-step{min-height:75px;align-content:start;gap:10px}
+.schedule-step strong{font-size:13px;line-height:1.35;color:#f2f2ef}
+.schedule-step:focus-visible,.documented-dates button:focus-visible,.documented-open:focus-visible{outline:3px solid #e4b85c;outline-offset:3px}
+.schedule-cards{gap:19px}
+.schedule-card.documented-phase{padding:0;border-color:rgba(181,151,92,.22);scroll-margin-top:95px}
+.schedule-card.documented-phase::before{display:none}
+.documented-visual{height:235px;position:relative;overflow:hidden;background:#112b3a}
+.documented-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(6,19,30,.55));pointer-events:none}
+.documented-visual img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.documented-phase:hover .documented-visual img{transform:scale(1.025)}
+.documented-number{position:absolute;z-index:1;top:14px;left:14px;padding:7px 10px;color:#f1bf67;background:#091d2de6;border:1px solid #ab824e77;border-radius:7px;font-size:10px;font-weight:900;letter-spacing:.08em}
+.documented-content{padding:20px 22px 22px}
+.documented-period{margin:0 0 9px;color:#e7b96c;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.03em}
+.documented-phase h4{font-size:clamp(21px,2vw,28px);line-height:1.2}
+.documented-phase .schedule-description{color:#b9ccd8;font-size:13px;line-height:1.65;min-height:44px;margin:11px 0 14px}
+.documented-metrics{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 17px}
+.documented-metrics span{padding:7px 10px;border-radius:7px;background:#ffffff0b;border:1px solid #ffffff1a;font-size:11px;color:#cdd9e1}
+.documented-metrics strong{color:#f1bf67;font-size:14px}
+.documented-detail-title{margin:0 0 8px;color:#d4e0e8;font-size:11px;font-weight:800}
+.documented-dates{display:flex;flex-wrap:wrap;gap:7px}
+.documented-dates button{background:#0a2436;color:#dbe8ee;border:1px solid #53708388;border-radius:6px;padding:8px 10px;cursor:pointer;font-size:11px;font-weight:700}
+.documented-dates button:hover{border-color:#dfb467;background:#173648}
+.documented-actions{display:flex;gap:9px;flex-wrap:wrap;border-top:1px solid #ffffff1a;padding-top:16px;margin-top:16px}
+.documented-actions button,.documented-actions a{display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:11px 12px;background:#b08040;color:#07111f;border:1px solid #b08040;border-radius:7px;font-size:12px;font-weight:900;text-decoration:none;line-height:1.3}
+.documented-actions a{background:transparent;color:#f0c77d}
+.documented-actions button:hover{background:#d7ad66}
+.documented-actions a:hover{background:#a27a3420}
+@media(max-width:900px){.schedule-rail{display:flex}.schedule-step{flex:0 0 170px}.documented-visual{height:230px}}
+@media(max-width:600px){.documented-visual{height:200px}.documented-content{padding:16px}.documented-actions button,.documented-actions a{width:100%}}
+
+/* V25.6 : arrivée du clic reportage sous la navigation fixe */
+.archive-feature { scroll-margin-top: 100px; }

@@ -146,7 +146,7 @@
 
         const reports = filteredReports();
         if (reports.length) {
-          selectReport(reports[0].id, { scrollCard: false, scrollFeature: false });
+          activateArchiveReport(reports[0].id, { scrollCard: false, scrollFeature: false });
         }
       });
       els.archiveFilters.appendChild(button);
@@ -178,7 +178,7 @@
     `;
 
     button.addEventListener("click", () => {
-      selectReport(report.id, { scrollCard: true, scrollFeature: window.innerWidth < 760 });
+      activateArchiveReport(report.id, { scrollCard: false, scrollFeature: true });
     });
     return button;
   }
@@ -242,7 +242,7 @@
     refreshMediaSelection();
   }
 
-  function selectReport(id, { scrollCard = false, scrollFeature = false } = {}) {
+  function activateArchiveReport(id, { scrollCard = false, scrollFeature = false } = {}) {
     const report = state.reports.find(item => item.id === id);
     if (!report) return;
 
@@ -275,7 +275,7 @@
     const nextIndex = Math.max(0, Math.min(reports.length - 1, index + direction));
     if (nextIndex === index) return;
 
-    selectReport(reports[nextIndex].id, { scrollCard: true, scrollFeature: false });
+    activateArchiveReport(reports[nextIndex].id, { scrollCard: true, scrollFeature: false });
   }
 
   function setupArchiveNavigation() {
@@ -302,7 +302,7 @@
     else mediaSelection.set(key, { report, photo });
     refreshMediaSelection();
   }
-  function selectReport(report = state.currentReport) {
+  function selectReportMedia(report = state.currentReport) {
     if (!report) return;
     report.photos.forEach(photo => mediaSelection.set(mediaKey(report, photo), { report, photo }));
     refreshMediaSelection();
@@ -339,10 +339,10 @@
     return label;
   }
   function setupMediaSelection() {
-    $("#select-report").addEventListener("click", () => selectReport());
-    $("#dialog-select-report").addEventListener("click", () => selectReport(galleryReport));
+    $("#select-report").addEventListener("click", () => selectReportMedia());
+    $("#dialog-select-report").addEventListener("click", () => selectReportMedia(galleryReport));
     $("#select-all-reports").addEventListener("click", () => {
-      state.reports.forEach(report => selectReport(report));
+      state.reports.forEach(report => selectReportMedia(report));
       window.dispatchEvent(new Event("seg-select-all-media"));
     });
     $("#clear-selection").addEventListener("click", () => {mediaSelection.clear(); extraMedia.clear(); refreshMediaSelection();});
@@ -974,6 +974,15 @@
       renderArchiveCards();
       setupArchiveNavigation();
       renderReport(state.reports[0]);
+      window.addEventListener("seg:open-report", event => {
+        const id = event.detail?.id;
+        if (!id || !state.reports.some(report => report.id === id)) return;
+        state.archiveFilter = "all";
+        renderArchiveFilters();
+        renderArchiveCards();
+        renderArchiveStats();
+        activateArchiveReport(id, {scrollFeature: true});
+      });
       renderVideos(data.videos);
       updateStats(data.project, state.reports, data.videos);
 
