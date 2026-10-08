@@ -45,6 +45,8 @@ function renderPlaces() {
   });
 }
 
+function panoEntry(place=state.currentPlace) {return place ? {type:"panorama",src:place.shots[0].panorama,date:"2026-09-03"}:null;}
+function updatePanoramaSelection() {const e=panoEntry(); const b=$("#pano-select-current");if(e && b)b.textContent=window.segMedia?.isSelected(e)?"✓ Panorama sélectionné":"Sélectionner ce panorama";}
 async function selectPlace(placeId) {
   const place = state.data.places.find(item => item.id === placeId);
   if (!place || !state.viewer) return;
@@ -53,6 +55,7 @@ async function selectPlace(placeId) {
   const shot = place.shots[0];
 
   $("#viewer-place-label").textContent = place.label;
+  updatePanoramaSelection();
   document.querySelectorAll(".pano-choice").forEach(button => {
     button.classList.toggle("active", button.dataset.placeId === placeId);
   });
@@ -92,6 +95,11 @@ async function init() {
     });
 
     renderPlaces();
+    updatePanoramaSelection();
+    $("#pano-select-current")?.addEventListener("click",()=>{const e=panoEntry();if(e){window.segMedia?.toggleExtra(e);updatePanoramaSelection();}});
+    $("#pano-select-all")?.addEventListener("click",()=>{state.data.places.forEach(place=>window.segMedia?.selectExtra(panoEntry(place)));updatePanoramaSelection();});
+    $("#pano-download-current")?.addEventListener("click",()=>{const e=panoEntry();if(!e)return;const a=document.createElement("a");a.href=e.src;a.download=e.src.split("/").pop();document.body.appendChild(a);a.click();a.remove();});
+    window.addEventListener("seg-select-all-media",()=>{state.data.places.forEach(place=>window.segMedia?.selectExtra(panoEntry(place)));updatePanoramaSelection();});
 
     state.viewer.addEventListener("panorama-error", () => showError(true));
     state.viewer.addEventListener("panorama-loaded", () => showError(false));
