@@ -1,0 +1,86 @@
+{
+  "note": "Classement éditorial indicatif. Les mêmes reportages peuvent illustrer plusieurs familles de travaux. Ni achèvement, ni conformité, ni niveaux officiellement atteints ne sont certifiés.",
+  "phases": [
+    {
+      "id": "terrassements",
+      "label": "Terrassements et soutènements",
+      "description": "Excavation, terrassements, gestion des déblais et ouvrages de maintien des terres visibles sur les relevés.",
+      "dates": [
+        "2026-06-29",
+        "2026-07-08",
+        "2026-07-12",
+        "2026-07-22",
+        "2026-07-31",
+        "2026-08-04",
+        "2026-08-14",
+        "2026-08-17",
+        "2026-08-20"
+      ],
+      "cover": {
+        "src": "assets/photos/2026-08/20260820_161216.webp",
+        "alt": "Chantier du complexe hôtelier à La Mongie, 20 août 2026 vers 16 h 12"
+      },
+      "has360": false,
+      "reportCount": 9,
+      "photoCount": 51
+    },
+    {
+      "id": "fondations",
+      "label": "Fondations et infrastructure",
+      "description": "Premiers ouvrages de structure en partie basse : armatures, coffrages et zones bétonnées observables.",
+      "dates": [
+        "2026-08-20",
+        "2026-08-28",
+        "2026-09-03",
+        "2026-09-07",
+        "2026-09-10",
+        "2026-09-17"
+      ],
+      "cover": {
+        "src": "assets/photos/2026-09/20260907_084409.webp",
+        "alt": "Chantier de La Mongie, 07/09/2026 à 08 h 44"
+      },
+      "has360": true,
+      "reportCount": 6,
+      "photoCount": 39
+    },
+    {
+      "id": "elevations",
+      "label": "Voiles et élévations",
+      "description": "Éléments verticaux en béton, coffrages et ouvrages de structure visibles dans les reportages récents.",
+      "dates": [
+        "2026-09-10",
+        "2026-09-11",
+        "2026-09-15",
+        "2026-09-17",
+        "2026-09-24",
+        "2026-09-30"
+      ],
+      "cover": {
+        "src": "assets/photos/2026-09/20260924_095727.webp",
+        "alt": "Chantier de La Mongie, 24/09/2026 à 09 h 57"
+      },
+      "has360": true,
+      "reportCount": 6,
+      "photoCount": 25
+    },
+    {
+      "id": "planchers",
+      "label": "Dalles et planchers",
+      "description": "Armatures, panneaux de plancher, coffrages et surfaces horizontales observables sur les derniers relevés.",
+      "dates": [
+        "2026-09-17",
+        "2026-09-21",
+        "2026-09-24",
+        "2026-09-30"
+      ],
+      "cover": {
+        "src": "assets/photos/2026-09/20260930_144503.webp",
+        "alt": "Chantier de La Mongie, 30/09/2026 à 14 h 45"
+      },
+      "has360": false,
+      "reportCount": 4,
+      "photoCount": 18
+    }
+  ]
+}
