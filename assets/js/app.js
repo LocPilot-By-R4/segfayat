@@ -43,10 +43,11 @@
     dialogTitle: $("#dialog-title"),
     dialogGallery: $("#dialog-gallery"),
     openGallery: $("#open-gallery"),
-    videoGrid: $("#video-grid"),
     videoDialog: $("#video-dialog"),
     videoDialogTitle: $("#video-dialog-title"),
-    videoDialogCopy: $("#video-dialog-copy"),
+    reportVideos: $("#reportage-videos"),
+    featuredVideos: $("#featured-timelapses"),
+    dialogReportVideos: $("#dialog-report-videos"),
     compareRange: $("#compare-range"),
     compareWrap: $("#compare-after-wrap"),
     compareDivider: $("#compare-divider"),
@@ -168,7 +169,7 @@
     button.innerHTML = `
       <span class="archive-report-cover">
         ${cover ? `<img src="${cover.src}" alt="" loading="lazy">` : ""}
-        <span class="archive-report-count">${count} photo${count > 1 ? "s" : ""}</span>
+        <span class="archive-report-count">${count} photo${count > 1 ? "s" : ""}${report.videos?.length ? ` · ${report.videos.length} timelapses 360°` : ""}</span>
       </span>
       <span class="archive-report-body">
         <span class="archive-report-date">${formatDate(report.date)}</span>
@@ -204,6 +205,15 @@
     els.reportPhotoCount.textContent = count;
     els.reportCaption.textContent = `Aperçu de ${Math.min(5, count)} image${Math.min(5, count) > 1 ? "s" : ""} · reportage complet : ${count} photo${count > 1 ? "s" : ""}.`;
     els.openGallery.textContent = `Ouvrir les ${count} photo${count > 1 ? "s" : ""}`;
+
+    const videoCount = report.videos?.length || 0;
+    $("#reportage-video-count").hidden = !videoCount;
+    $("#reportage-video-count").textContent = `+ ${videoCount} timelapses 360°`;
+    if (videoCount) {
+      els.reportCaption.textContent = `${count} photographies et ${videoCount} timelapses 360° dans ce reportage.`;
+      els.openGallery.textContent = `Ouvrir le reportage complet (${count + videoCount} médias)`;
+    }
+    renderReportVideos(report, els.reportVideos);
 
     els.gallery.innerHTML = "";
     const previewPhotos = report.photos.slice(0, 5);
@@ -305,6 +315,10 @@
   function selectReportMedia(report = state.currentReport) {
     if (!report) return;
     report.photos.forEach(photo => mediaSelection.set(mediaKey(report, photo), { report, photo }));
+    (report.videos || []).forEach(video => {
+      const entry = videoEntry(video);
+      extraMedia.set(extraKey(entry), entry);
+    });
     refreshMediaSelection();
   }
   function refreshMediaSelection() {
@@ -319,6 +333,15 @@
       box.checked = checked;
       box.setAttribute("aria-label", checked ? "Retirer de la sélection" : "Ajouter à la sélection");
     });
+    $$("[data-extra-key]").forEach(box => {
+      box.checked = extraMedia.has(box.dataset.extraKey);
+    });
+    if (currentVideo) {
+      const selected = extraMedia.has(extraKey(videoEntry(currentVideo)));
+      $("#video-select-current").textContent = selected ? "✓ Vidéo sélectionnée" : "Sélectionner";
+      $("#video-select-current").setAttribute("aria-pressed", String(selected));
+    }
+    window.dispatchEvent(new Event("seg-media-selection-change"));
     if (viewerReport?.photos?.[viewerIndex]) {
       const checked = mediaSelection.has(mediaKey(viewerReport, viewerReport.photos[viewerIndex]));
       $("#photo-viewer-select").textContent = checked ? "✓ Sélectionnée" : "Sélectionner";
@@ -372,7 +395,7 @@
   }
   function zipFileName(entry) {
     if (!entry.report) return `${entry.type === "panorama" ? "360" : "videos"}/${safeName(entry.date || "sans-date")}/${safeName(decodeURIComponent(entry.src.split("/").pop().split("?")[0]))}`;
-    const basename = decodeURIComponent(entry.photo.src.split("/").pop().split("?")[0]);
+    const basename = decodeURIComponent((entry.photo.downloadSrc || entry.photo.src).split("/").pop().split("?")[0]);
     return `photos/${safeName(entry.report.date)}/${safeName(basename)}`;
   }
   function buildZip(files) {
@@ -414,7 +437,7 @@
     try {
       for (const [i, entry] of entries.entries()) {
         status.textContent=`Préparation ${i+1}/${entries.length}…`;
-        const src = entry.photo?.src || entry.src;
+        const src = entry.photo?.downloadSrc || entry.photo?.src || entry.src;
         const response=await fetch(src);
         if (!response.ok) throw new Error(`Téléchargement impossible : ${src} (${response.status})`);
         files.push({name:zipFileName(entry),data:new Uint8Array(await response.arrayBuffer())});
@@ -522,44 +545,118 @@
       els.dialogGallery.appendChild(wrapper);
     });
 
+    renderReportVideos(report, els.dialogReportVideos);
     els.galleryDialog.showModal();
     document.body.classList.add("dialog-open");
   }
 
-  function renderVideos(videos) {
-    window.segMedia.selectAllVideos = () => videos.filter(v => v.src || v.url).forEach(v => selectExtra({type:"video",src:v.src||v.url,date:v.date}));
-    els.videoGrid.innerHTML = "";
-    if (!videos.length) {
-      els.videoGrid.innerHTML = `<div class="media-empty"><div><strong>Vidéos à venir</strong><span>Aucune vidéo n’était présente dans les archives médias actuellement intégrées.</span></div></div>`;
-      return;
-    }
+  const videoEntry = video => ({ type: "video", src: video.src, date: video.date });
+  let currentVideo = null;
+  let videoModule = null;
+  let videoRequest = 0;
+
+  function renderReportVideos(report, target, { featured = false } = {}) {
+    const videos = report.videos || [];
+    target.replaceChildren();
+    target.hidden = !videos.length;
+    if (!videos.length) return;
+    const heading = document.createElement("h4");
+    heading.textContent = "Les timelapses à 360° du reportage";
+    const hint = document.createElement("p");
+    hint.textContent = "Lancez une vidéo, puis glissez dans l’image pour explorer le chantier.";
+    const grid = document.createElement("div");
+    grid.className = "report-video-grid";
     videos.forEach(video => {
+      const wrapper = document.createElement("article");
+      wrapper.className = "report-video-card";
       const button = document.createElement("button");
       button.type = "button";
       button.className = "video-card";
+      button.dataset.videoId = video.id;
+      button.setAttribute("aria-label", `Lire ${video.title} à 360 degrés`);
+      button.setAttribute("aria-haspopup", "dialog");
       button.innerHTML = `
         <span class="video-card-image">
-          <img src="${video.thumbnail}" alt="" loading="lazy">
+          <img src="${video.thumbnail}" alt="" loading="lazy" decoding="async">
+          <span class="video-360-badge">Timelapse 360°</span>
           <span class="video-play" aria-hidden="true">▶</span>
         </span>
         <span class="video-card-body">
           <strong>${video.title}</strong>
           <small><span>${formatDate(video.date)}</span><span>${video.duration}</span></small>
-        </span>
-      `;
-      button.addEventListener("click", () => {
-        els.videoDialogTitle.textContent = video.title;
-        els.videoDialogCopy.textContent = video.note || "Ajoutez ici votre URL YouTube, Vimeo ou MP4.";
-        els.videoDialog.showModal();
-        document.body.classList.add("dialog-open");
-      });
-      els.videoGrid.appendChild(button);
-      if (video.src || video.url) {
-        const choose=document.createElement("button"); choose.type="button"; choose.className="btn btn-outline"; choose.textContent="Sélectionner la vidéo";
-        const entry={type:"video",src:video.src||video.url,date:video.date};
-        choose.addEventListener("click",()=>{toggleExtra(entry);choose.textContent=window.segMedia.isSelected(entry)?"✓ Vidéo sélectionnée":"Sélectionner la vidéo";});
-        els.videoGrid.appendChild(choose);
+          ${featured ? '<span class="featured-video-cta">Lire et explorer à 360° <span aria-hidden="true">→</span></span>' : ""}
+        </span>`;
+      button.addEventListener("click", () => openTimelapse(video));
+      if (featured) {
+        const download = document.createElement("a");
+        download.className = "featured-video-download";
+        download.href = video.src;
+        download.download = video.src.split("/").pop();
+        download.textContent = "Télécharger le MP4";
+        download.setAttribute("aria-label", `Télécharger ${video.title} au format MP4`);
+        wrapper.append(button, download);
+        grid.append(wrapper);
+        return;
       }
+      const label = document.createElement("label");
+      label.className = "video-selection";
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      const entry = videoEntry(video);
+      checkbox.dataset.extraKey = extraKey(entry);
+      checkbox.checked = extraMedia.has(extraKey(entry));
+      checkbox.setAttribute("aria-label", `Sélectionner ${video.title}`);
+      checkbox.addEventListener("change", () => toggleExtra(entry));
+      label.append(checkbox, document.createTextNode("Sélectionner la vidéo"));
+      wrapper.append(button, label);
+      grid.append(wrapper);
+    });
+    if (featured) target.append(grid);
+    else target.append(heading, hint, grid);
+  }
+
+  function showVideoError() {
+    $("#video-viewer-message").textContent = "La lecture 360° est indisponible. Réessayez ou téléchargez le MP4 avec le bouton ci-dessus.";
+    $("#video-viewer-status").hidden = false;
+    $("#video-viewer-retry").hidden = false;
+  }
+
+  async function openTimelapse(video) {
+    const request = ++videoRequest;
+    videoModule?.destroyVideo();
+    currentVideo = video;
+    els.videoDialogTitle.textContent = video.title;
+    const download = $("#video-download-current");
+    download.href = video.src;
+    download.download = video.src.split("/").pop();
+    $("#video-viewer-message").textContent = "Chargement du timelapse 360°…";
+    $("#video-viewer-status").hidden = false;
+    $("#video-viewer-retry").hidden = true;
+    if (!els.videoDialog.open) els.videoDialog.showModal();
+    document.body.classList.add("dialog-open");
+    refreshMediaSelection();
+    try {
+      videoModule = await import("./video-viewer.js?v=25.9");
+      if (request !== videoRequest || !els.videoDialog.open) return;
+      videoModule.mountVideo(video, showVideoError);
+    } catch (error) {
+      if (request !== videoRequest || !els.videoDialog.open) return;
+      console.error("Lecture du timelapse 360° impossible :", error);
+      showVideoError();
+    }
+  }
+
+  function setupVideoPlayer() {
+    $("#video-select-current").addEventListener("click", () => {
+      if (currentVideo) toggleExtra(videoEntry(currentVideo));
+    });
+    $("#video-viewer-retry").addEventListener("click", () => {
+      if (currentVideo) openTimelapse(currentVideo);
+    });
+    els.videoDialog.addEventListener("close", () => {
+      videoRequest++;
+      videoModule?.destroyVideo();
+      currentVideo = null;
     });
   }
 
@@ -583,7 +680,7 @@
       });
 
       dialog.addEventListener("close", () => {
-        document.body.classList.remove("dialog-open");
+        if (!$("dialog[open]")) document.body.classList.remove("dialog-open");
       });
     });
   }
@@ -958,16 +1055,23 @@
     setupDialogs();
     setupPhotoViewer();
     setupMediaSelection();
-    window.addEventListener("seg-select-all-media", () => window.segMedia.selectAllVideos?.());
+    setupVideoPlayer();
     setupBeforeAfter();
     setupNavigation();
     setupViewSwitch();
 
     try {
-      const response = await fetch("data/chantier.json?v=25", { cache: "no-store" });
+      const response = await fetch("data/chantier.json?v=25-9", { cache: "no-store" });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = await response.json();
 
+      const videos = data.videos || [];
+      renderReportVideos({ videos }, els.featuredVideos, { featured: true });
+      $("#timelapse-status").hidden = videos.length > 0;
+      if (!videos.length) $("#timelapse-status").textContent = "Les prochains timelapses seront présentés ici.";
+      data.reports.forEach(report => {
+        report.videos = videos.filter(video => video.reportId === report.id);
+      });
       state.reports = [...data.reports].sort((a, b) => b.date.localeCompare(a.date));
       renderArchiveStats();
       renderArchiveFilters();
@@ -983,12 +1087,18 @@
         renderArchiveStats();
         activateArchiveReport(id, {scrollFeature: true});
       });
-      renderVideos(data.videos);
+      $$("[data-video-report]").forEach(link => link.addEventListener("click", event => {
+        event.preventDefault();
+        window.dispatchEvent(new CustomEvent("seg:open-report", {detail: {id: link.dataset.videoReport}}));
+        els.reportVideos.scrollIntoView({behavior: "smooth", block: "start"});
+      }));
       updateStats(data.project, state.reports, data.videos);
 
       els.openGallery.addEventListener("click", () => openGallery());
     } catch (error) {
       console.error("Impossible de charger les données du chantier :", error);
+      $("#timelapse-status").hidden = false;
+      $("#timelapse-status").textContent = "Les timelapses ne peuvent pas être affichés pour le moment.";
       els.reportTitle.textContent = "Données indisponibles";
       els.reportDescription.textContent =
         "Lancez le site via un serveur local ou GitHub Pages afin que les fichiers JSON puissent être chargés.";

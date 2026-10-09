@@ -1,3 +1,5 @@
+> **Version actuelle : V25.10.** La mise en avant des timelapses et les consignes de test sont décrites dans [README-V25.10.md](README-V25.10.md). Le fonctionnement du lecteur reste décrit dans [README-V25.9.md](README-V25.9.md). Les notes ci-dessous retracent les versions précédentes.
+
 # Suivi de chantier – Complexe hôtelier 4★+ · Domaine de La Mongie
 
 Maquette HTML/CSS/JavaScript responsive conçue pour GitHub Pages.

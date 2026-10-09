@@ -96,6 +96,7 @@ async function init() {
 
     renderPlaces();
     updatePanoramaSelection();
+    window.addEventListener("seg-media-selection-change", updatePanoramaSelection);
     $("#pano-select-current")?.addEventListener("click",()=>{const e=panoEntry();if(e){window.segMedia?.toggleExtra(e);updatePanoramaSelection();}});
     $("#pano-select-all")?.addEventListener("click",()=>{state.data.places.forEach(place=>window.segMedia?.selectExtra(panoEntry(place)));updatePanoramaSelection();});
     $("#pano-download-current")?.addEventListener("click",()=>{const e=panoEntry();if(!e)return;const a=document.createElement("a");a.href=e.src;a.download=e.src.split("/").pop();document.body.appendChild(a);a.click();a.remove();});

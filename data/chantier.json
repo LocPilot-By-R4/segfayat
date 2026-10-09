@@ -1,10 +1,129 @@
 {
   "project": {
     "name": "Complexe hôtelier 4★+ – Domaine de La Mongie",
-    "lastUpdate": "2026-09-30",
-    "currentPhase": "Suivi photographique — septembre 2026"
+    "lastUpdate": "2026-10-01",
+    "currentPhase": "Suivi terrain — octobre 2026"
   },
   "reports": [
+    {
+      "id": "2026-10-01-exercice-grue",
+      "date": "2026-10-01",
+      "phase": "Exercice de secours · grue",
+      "title": "Exercice de secours en hauteur — 1er octobre 2026",
+      "description": "Reportage photographique de l’exercice d’évacuation et de secours organisé autour de la grue du chantier le jeudi 1er octobre 2026. 18 photographies prises dans des conditions de faible luminosité et de nuit. Ce reportage documente un exercice et ne constitue pas un compte rendu opérationnel des secours.",
+      "photoCount": 18,
+      "videoCount": 0,
+      "photos": [
+        {
+          "src": "assets/photos/2026-10/20261001_exercice-grue_01.webp",
+          "thumb": "assets/photos/2026-10/20261001_exercice-grue_01-thumb.webp",
+          "downloadSrc": "assets/originaux/2026-10/20261001_exercice-grue_01.png",
+          "alt": "Exercice de secours des sapeurs-pompiers sur la grue du chantier de La Mongie, 1er octobre 2026 — photographie 1 sur 18"
+        },
+        {
+          "src": "assets/photos/2026-10/20261001_exercice-grue_02.webp",
+          "thumb": "assets/photos/2026-10/20261001_exercice-grue_02-thumb.webp",
+          "downloadSrc": "assets/originaux/2026-10/20261001_exercice-grue_02.png",
+          "alt": "Exercice de secours des sapeurs-pompiers sur la grue du chantier de La Mongie, 1er octobre 2026 — photographie 2 sur 18"
+        },
+        {
+          "src": "assets/photos/2026-10/20261001_exercice-grue_03.webp",
+          "thumb": "assets/photos/2026-10/20261001_exercice-grue_03-thumb.webp",
+          "downloadSrc": "assets/originaux/2026-10/20261001_exercice-grue_03.png",
+          "alt": "Exercice de secours des sapeurs-pompiers sur la grue du chantier de La Mongie, 1er octobre 2026 — photographie 3 sur 18"
+        },
+        {
+          "src": "assets/photos/2026-10/20261001_exercice-grue_04.webp",
+          "thumb": "assets/photos/2026-10/20261001_exercice-grue_04-thumb.webp",
+          "downloadSrc": "assets/originaux/2026-10/20261001_exercice-grue_04.png",
+          "alt": "Exercice de secours des sapeurs-pompiers sur la grue du chantier de La Mongie, 1er octobre 2026 — photographie 4 sur 18"
+        },
+        {
+          "src": "assets/photos/2026-10/20261001_exercice-grue_05.webp",
+          "thumb": "assets/photos/2026-10/20261001_exercice-grue_05-thumb.webp",
+          "downloadSrc": "assets/originaux/2026-10/20261001_exercice-grue_05.png",
+          "alt": "Exercice de secours des sapeurs-pompiers sur la grue du chantier de La Mongie, 1er octobre 2026 — photographie 5 sur 18"
+        },
+        {
+          "src": "assets/photos/2026-10/20261001_exercice-grue_06.webp",
+          "thumb": "assets/photos/2026-10/20261001_exercice-grue_06-thumb.webp",
+          "downloadSrc": "assets/originaux/2026-10/20261001_exercice-grue_06.png",
+          "alt": "Exercice de secours des sapeurs-pompiers sur la grue du chantier de La Mongie, 1er octobre 2026 — photographie 6 sur 18"
+        },
+        {
+          "src": "assets/photos/2026-10/20261001_exercice-grue_07.webp",
+          "thumb": "assets/photos/2026-10/20261001_exercice-grue_07-thumb.webp",
+          "downloadSrc": "assets/originaux/2026-10/20261001_exercice-grue_07.png",
+          "alt": "Exercice de secours des sapeurs-pompiers sur la grue du chantier de La Mongie, 1er octobre 2026 — photographie 7 sur 18"
+        },
+        {
+          "src": "assets/photos/2026-10/20261001_exercice-grue_08.webp",
+          "thumb": "assets/photos/2026-10/20261001_exercice-grue_08-thumb.webp",
+          "downloadSrc": "assets/originaux/2026-10/20261001_exercice-grue_08.png",
+          "alt": "Exercice de secours des sapeurs-pompiers sur la grue du chantier de La Mongie, 1er octobre 2026 — photographie 8 sur 18"
+        },
+        {
+          "src": "assets/photos/2026-10/20261001_exercice-grue_09.webp",
+          "thumb": "assets/photos/2026-10/20261001_exercice-grue_09-thumb.webp",
+          "downloadSrc": "assets/originaux/2026-10/20261001_exercice-grue_09.png",
+          "alt": "Exercice de secours des sapeurs-pompiers sur la grue du chantier de La Mongie, 1er octobre 2026 — photographie 9 sur 18"
+        },
+        {
+          "src": "assets/photos/2026-10/20261001_exercice-grue_10.webp",
+          "thumb": "assets/photos/2026-10/20261001_exercice-grue_10-thumb.webp",
+          "downloadSrc": "assets/originaux/2026-10/20261001_exercice-grue_10.png",
+          "alt": "Exercice de secours des sapeurs-pompiers sur la grue du chantier de La Mongie, 1er octobre 2026 — photographie 10 sur 18"
+        },
+        {
+          "src": "assets/photos/2026-10/20261001_exercice-grue_11.webp",
+          "thumb": "assets/photos/2026-10/20261001_exercice-grue_11-thumb.webp",
+          "downloadSrc": "assets/originaux/2026-10/20261001_exercice-grue_11.png",
+          "alt": "Exercice de secours des sapeurs-pompiers sur la grue du chantier de La Mongie, 1er octobre 2026 — photographie 11 sur 18"
+        },
+        {
+          "src": "assets/photos/2026-10/20261001_exercice-grue_12.webp",
+          "thumb": "assets/photos/2026-10/20261001_exercice-grue_12-thumb.webp",
+          "downloadSrc": "assets/originaux/2026-10/20261001_exercice-grue_12.png",
+          "alt": "Exercice de secours des sapeurs-pompiers sur la grue du chantier de La Mongie, 1er octobre 2026 — photographie 12 sur 18"
+        },
+        {
+          "src": "assets/photos/2026-10/20261001_exercice-grue_13.webp",
+          "thumb": "assets/photos/2026-10/20261001_exercice-grue_13-thumb.webp",
+          "downloadSrc": "assets/originaux/2026-10/20261001_exercice-grue_13.png",
+          "alt": "Exercice de secours des sapeurs-pompiers sur la grue du chantier de La Mongie, 1er octobre 2026 — photographie 13 sur 18"
+        },
+        {
+          "src": "assets/photos/2026-10/20261001_exercice-grue_14.webp",
+          "thumb": "assets/photos/2026-10/20261001_exercice-grue_14-thumb.webp",
+          "downloadSrc": "assets/originaux/2026-10/20261001_exercice-grue_14.png",
+          "alt": "Exercice de secours des sapeurs-pompiers sur la grue du chantier de La Mongie, 1er octobre 2026 — photographie 14 sur 18"
+        },
+        {
+          "src": "assets/photos/2026-10/20261001_exercice-grue_15.webp",
+          "thumb": "assets/photos/2026-10/20261001_exercice-grue_15-thumb.webp",
+          "downloadSrc": "assets/originaux/2026-10/20261001_exercice-grue_15.png",
+          "alt": "Exercice de secours des sapeurs-pompiers sur la grue du chantier de La Mongie, 1er octobre 2026 — photographie 15 sur 18"
+        },
+        {
+          "src": "assets/photos/2026-10/20261001_exercice-grue_16.webp",
+          "thumb": "assets/photos/2026-10/20261001_exercice-grue_16-thumb.webp",
+          "downloadSrc": "assets/originaux/2026-10/20261001_exercice-grue_16.png",
+          "alt": "Exercice de secours des sapeurs-pompiers sur la grue du chantier de La Mongie, 1er octobre 2026 — photographie 16 sur 18"
+        },
+        {
+          "src": "assets/photos/2026-10/20261001_exercice-grue_17.webp",
+          "thumb": "assets/photos/2026-10/20261001_exercice-grue_17-thumb.webp",
+          "downloadSrc": "assets/originaux/2026-10/20261001_exercice-grue_17.png",
+          "alt": "Exercice de secours des sapeurs-pompiers sur la grue du chantier de La Mongie, 1er octobre 2026 — photographie 17 sur 18"
+        },
+        {
+          "src": "assets/photos/2026-10/20261001_exercice-grue_18.webp",
+          "thumb": "assets/photos/2026-10/20261001_exercice-grue_18-thumb.webp",
+          "downloadSrc": "assets/originaux/2026-10/20261001_exercice-grue_18.png",
+          "alt": "Exercice de secours des sapeurs-pompiers sur la grue du chantier de La Mongie, 1er octobre 2026 — photographie 18 sur 18"
+        }
+      ]
+    },
     {
       "id": "2026-09-30",
       "date": "2026-09-30",
@@ -231,11 +350,11 @@
     {
       "id": "2026-09-07",
       "date": "2026-09-07",
-      "phase": "Suivi photographique",
-      "title": "Relevé photographique du 07/09/2026",
-      "description": "10 prises de vue du chantier réalisées le 07/09/2026 ; consultation et téléchargement individuel des photographies.",
+      "phase": "Photos & timelapses 360°",
+      "title": "Reportage du 7 septembre 2026",
+      "description": "10 photographies et 2 timelapses à 360° du chantier. Explorez librement les vidéos pendant leur lecture et téléchargez les médias de votre choix.",
       "photoCount": 10,
-      "videoCount": 0,
+      "videoCount": 2,
       "photos": [
         {
           "src": "assets/photos/2026-09/20260907_084409.webp",
@@ -771,5 +890,28 @@
       ]
     }
   ],
-  "videos": []
+  "videos": [
+    {
+      "id": "timelapse-2026-09-07-103720",
+      "reportId": "2026-09-07",
+      "date": "2026-09-07",
+      "title": "Timelapse 01 — 10 h 37",
+      "projection": "equirectangular",
+      "src": "assets/videos/2026-09/VID_20260907_103720_00_004.mp4",
+      "thumbnail": "assets/videos/2026-09/timelapse-01-thumb.webp",
+      "duration": "17 s",
+      "durationSeconds": 17.250567
+    },
+    {
+      "id": "timelapse-2026-09-07-123908",
+      "reportId": "2026-09-07",
+      "date": "2026-09-07",
+      "title": "Timelapse 02 — 12 h 39",
+      "projection": "equirectangular",
+      "src": "assets/videos/2026-09/VID_20260907_123908_00_005.mp4",
+      "thumbnail": "assets/videos/2026-09/timelapse-02-thumb.webp",
+      "duration": "19 s",
+      "durationSeconds": 18.752067
+    }
+  ]
 }

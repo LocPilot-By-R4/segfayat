@@ -1,0 +1,70 @@
+ .github/workflows/import-hotel-image.yml           |  33 [32m++++[m
+ README-V25.10.md                                   |  44 [32m++++++[m
+ README-V25.8.md                                    |  13 [32m++[m
+ README-V25.9.md                                    |  34 [32m++++[m
+ README.md                                          |   2 [32m+[m
+ assets/css/styles.css                              | 147 [32m++++++++++++++++++[m
+ assets/js/360-viewer.js                            |   1 [32m+[m
+ assets/js/app.js                                   | 172 [32m+++++++++++++++++[m[31m----[m
+ assets/js/video-viewer.js                          |  78 [32m++++++++++[m
+ .../2026-10/20261001_exercice-grue_01.png          | Bin [31m0[m -> [32m2558070[m bytes
+ .../2026-10/20261001_exercice-grue_02.png          | Bin [31m0[m -> [32m2882268[m bytes
+ .../2026-10/20261001_exercice-grue_03.png          | Bin [31m0[m -> [32m3016969[m bytes
+ .../2026-10/20261001_exercice-grue_04.png          | Bin [31m0[m -> [32m2587233[m bytes
+ .../2026-10/20261001_exercice-grue_05.png          | Bin [31m0[m -> [32m2755359[m bytes
+ .../2026-10/20261001_exercice-grue_06.png          | Bin [31m0[m -> [32m2644782[m bytes
+ .../2026-10/20261001_exercice-grue_07.png          | Bin [31m0[m -> [32m2262820[m bytes
+ .../2026-10/20261001_exercice-grue_08.png          | Bin [31m0[m -> [32m2372284[m bytes
+ .../2026-10/20261001_exercice-grue_09.png          | Bin [31m0[m -> [32m2574351[m bytes
+ .../2026-10/20261001_exercice-grue_10.png          | Bin [31m0[m -> [32m2167596[m bytes
+ .../2026-10/20261001_exercice-grue_11.png          | Bin [31m0[m -> [32m2119820[m bytes
+ .../2026-10/20261001_exercice-grue_12.png          | Bin [31m0[m -> [32m2419059[m bytes
+ .../2026-10/20261001_exercice-grue_13.png          | Bin [31m0[m -> [32m2615325[m bytes
+ .../2026-10/20261001_exercice-grue_14.png          | Bin [31m0[m -> [32m1978111[m bytes
+ .../2026-10/20261001_exercice-grue_15.png          | Bin [31m0[m -> [32m2210464[m bytes
+ .../2026-10/20261001_exercice-grue_16.png          | Bin [31m0[m -> [32m2003777[m bytes
+ .../2026-10/20261001_exercice-grue_17.png          | Bin [31m0[m -> [32m1843913[m bytes
+ .../2026-10/20261001_exercice-grue_18.png          | Bin [31m0[m -> [32m1813998[m bytes
+ .../2026-10/20261001_exercice-grue_01-thumb.webp   | Bin [31m0[m -> [32m63256[m bytes
+ .../photos/2026-10/20261001_exercice-grue_01.webp  | Bin [31m0[m -> [32m304758[m bytes
+ .../2026-10/20261001_exercice-grue_02-thumb.webp   | Bin [31m0[m -> [32m78786[m bytes
+ .../photos/2026-10/20261001_exercice-grue_02.webp  | Bin [31m0[m -> [32m320936[m bytes
+ .../2026-10/20261001_exercice-grue_03-thumb.webp   | Bin [31m0[m -> [32m77660[m bytes
+ .../photos/2026-10/20261001_exercice-grue_03.webp  | Bin [31m0[m -> [32m382238[m bytes
+ .../2026-10/20261001_exercice-grue_04-thumb.webp   | Bin [31m0[m -> [32m49556[m bytes
+ .../photos/2026-10/20261001_exercice-grue_04.webp  | Bin [31m0[m -> [32m259568[m bytes
+ .../2026-10/20261001_exercice-grue_05-thumb.webp   | Bin [31m0[m -> [32m62520[m bytes
+ .../photos/2026-10/20261001_exercice-grue_05.webp  | Bin [31m0[m -> [32m315776[m bytes
+ .../2026-10/20261001_exercice-grue_06-thumb.webp   | Bin [31m0[m -> [32m63228[m bytes
+ .../photos/2026-10/20261001_exercice-grue_06.webp  | Bin [31m0[m -> [32m321900[m bytes
+ .../2026-10/20261001_exercice-grue_07-thumb.webp   | Bin [31m0[m -> [32m48772[m bytes
+ .../photos/2026-10/20261001_exercice-grue_07.webp  | Bin [31m0[m -> [32m240174[m bytes
+ .../2026-10/20261001_exercice-grue_08-thumb.webp   | Bin [31m0[m -> [32m41824[m bytes
+ .../photos/2026-10/20261001_exercice-grue_08.webp  | Bin [31m0[m -> [32m237154[m bytes
+ .../2026-10/20261001_exercice-grue_09-thumb.webp   | Bin [31m0[m -> [32m56004[m bytes
+ .../photos/2026-10/20261001_exercice-grue_09.webp  | Bin [31m0[m -> [32m309962[m bytes
+ .../2026-10/20261001_exercice-grue_10-thumb.webp   | Bin [31m0[m -> [32m45246[m bytes
+ .../photos/2026-10/20261001_exercice-grue_10.webp  | Bin [31m0[m -> [32m190408[m bytes
+ .../2026-10/20261001_exercice-grue_11-thumb.webp   | Bin [31m0[m -> [32m45324[m bytes
+ .../photos/2026-10/20261001_exercice-grue_11.webp  | Bin [31m0[m -> [32m238122[m bytes
+ .../2026-10/20261001_exercice-grue_12-thumb.webp   | Bin [31m0[m -> [32m43352[m bytes
+ .../photos/2026-10/20261001_exercice-grue_12.webp  | Bin [31m0[m -> [32m233384[m bytes
+ .../2026-10/20261001_exercice-grue_13-thumb.webp   | Bin [31m0[m -> [32m30840[m bytes
+ .../photos/2026-10/20261001_exercice-grue_13.webp  | Bin [31m0[m -> [32m297058[m bytes
+ .../2026-10/20261001_exercice-grue_14-thumb.webp   | Bin [31m0[m -> [32m14924[m bytes
+ .../photos/2026-10/20261001_exercice-grue_14.webp  | Bin [31m0[m -> [32m157198[m bytes
+ .../2026-10/20261001_exercice-grue_15-thumb.webp   | Bin [31m0[m -> [32m26004[m bytes
+ .../photos/2026-10/20261001_exercice-grue_15.webp  | Bin [31m0[m -> [32m250008[m bytes
+ .../2026-10/20261001_exercice-grue_16-thumb.webp   | Bin [31m0[m -> [32m20962[m bytes
+ .../photos/2026-10/20261001_exercice-grue_16.webp  | Bin [31m0[m -> [32m202910[m bytes
+ .../2026-10/20261001_exercice-grue_17-thumb.webp   | Bin [31m0[m -> [32m35486[m bytes
+ .../photos/2026-10/20261001_exercice-grue_17.webp  | Bin [31m0[m -> [32m156598[m bytes
+ .../2026-10/20261001_exercice-grue_18-thumb.webp   | Bin [31m0[m -> [32m23938[m bytes
+ .../photos/2026-10/20261001_exercice-grue_18.webp  | Bin [31m0[m -> [32m99502[m bytes
+ .../videos/2026-09/VID_20260907_103720_00_004.mp4  | Bin [31m0[m -> [32m78495212[m bytes
+ .../videos/2026-09/VID_20260907_123908_00_005.mp4  | Bin [31m0[m -> [32m81384911[m bytes
+ assets/videos/2026-09/timelapse-01-thumb.webp      | Bin [31m0[m -> [32m153648[m bytes
+ assets/videos/2026-09/timelapse-02-thumb.webp      | Bin [31m0[m -> [32m145316[m bytes
+ data/chantier.json                                 | 158 [32m++++++++++++++++++[m[31m-[m
+ index.html                                         |  72 [32m+++++[m[31m----[m
+ 69 files changed, 688 insertions(+), 66 deletions(-)
